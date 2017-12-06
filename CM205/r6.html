@@ -1,0 +1,189 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../main.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="menu">
+      <h3>COMM 294</h3>
+      <a href="#">Transfer Pricing</a>
+      <h3>COMM 290</h3>
+      <a href="../CM290/290-dca.html">Decision Analysis</a>
+      <a href="../CM290/290-dcae.html">Decision Analysis Example: Sequential Decision</a>
+      <a href="../CM290/290-drv.html">Discrete Random Variables</a>
+      <a href="../CM290/290-bid.html">Bivariate Distributions</a>
+      <h3>COMM 205</h3>
+      <a href="../CM205/index.html">Data Frames and NAs</a>
+      <a href="../CM205/r4.html">Data Wrangling</a>
+      <a href="../CM205/r5.html">Data Wrangling II</a>
+      <a href="../CM205/r6.html" class="active">Data Wrangling III</a>
+      <h3>CPSC 210</h3>
+      <a href="#">Robust Design</a>
+      <a href="#">Object Oriented Design I</a>
+      <a href="#">Iterable Abstraction</a>
+      <a href="../CS210/210-ood2.html">Object Oriented Design II</a>
+    </div>
+    <main>
+
+      <div class="section">
+        <div class="text">
+          <h1>Data Wrangling III</h1>
+          <h3>group_by() with Two Variables</h3>
+          <p>The group_by function is able to divide the data set depending on more than one variable. For example, if we want to find
+          a summary of stastics of assets for firms in the same industry and on the same fiscal year we can simply do:</p>
+          <div class="code block-code">
+            <p>at_summary <- companies %>%<br />
+            &nbsp;<span class="keyword">group_by</span>(naicsh, fyear) %>%<br />
+            &nbsp;<span class="keyword">summarise</span>(min_at = min(at, na.rm = TRUE), <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;avg_at = mean(at, na.rm = TRUE),<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;max_at = max(at, na.rm = TRUE))</p>
+          </div>
+          <p>This would result in a table that looks like this (partial):</p>
+          <table class="btm-table">
+            <tr class="selected">
+              <td></td>
+              <td>naicsh</td>
+              <td>fyear</td>
+              <td>min_at</td>
+              <td>avg_at</td>
+              <td>max_at</td>
+            </tr>
+            <tr>
+              <td class="selected">1</td>
+              <td>21</td>
+              <td>1994</td>
+              <td>0.060</td>
+              <td>25.27150</td>
+              <td>50.483</td>
+            </tr>
+            <tr>
+              <td class="selected">2</td>
+              <td>21</td>
+              <td>2006</td>
+              <td>12.681</td>
+              <td>85.35037</td>
+              <td>223.181</td>
+            </tr>
+            <tr>
+              <td class="selected">3</td>
+              <td>21</td>
+              <td>NA</td>
+              <td>Inf</td>
+              <td>NaN</td>
+              <td>-Inf</td>
+            </tr>
+          </table>
+          <p>The weird output in the third row is a result of there being an NA in fyear but a valid value in naicsh. To fix this,
+          we filter out all of the values with NA in them:</p>
+          <div class="code block-code">
+            <p>at_summary <- companies %>%<br />
+            &nbsp;<span class="keyword">filter</span>(!is.na(fyear)) %>%<br />
+            &nbsp;<span class="keyword">group_by</span>(naicsh, fyear) %>%<br />
+            &nbsp;<span class="keyword">summarise</span>(min_at = min(at, na.rm = TRUE), <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;avg_at = mean(at, na.rm = TRUE),<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;max_at = max(at, na.rm = TRUE))</p>
+          </div>
+          <p>It's <strong>always good practice</strong> to do this.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>Using if_else()</h3>
+          <p><span class="code">if_else()</span> acts the same way as in excel. That is, it takes a conditional, and if it's true, produces the true value. Otherwise,
+          it produces the false value. The syntax for R is:</p>
+          <div class="syntax-block block-code">
+            <p>if_else(condition, true, false, missing = NULL)</p>
+          </div>
+          <p>Where:</p>
+          <ul>
+            <li>condition - the question that if_else() evaluates.</li>
+            <li>true - the true answer.</li>
+            <li>false - the false answer.</li>
+            <li>missing - the value that if_else() uses if it doesn't find a value. The default value is NULL.</li>
+          </ul>
+          <h4>Example problem</h4>
+          <p>Out of all the employees working for firms headquartered in each country, what proportion of those were working for firms
+          with at least 5000 employees? You need to retain the original observations.</p>
+          <p>To solve this question we need to find two things:</p>
+          <ul>
+            <li>The number of employees working in each country,</li>
+            <li>The number of employees working in each country for firms above 5000 employees.</li>
+          </ul>
+          <p>Firstly lets filter companies of the NA values and select only the columns we need:</p>
+          <div class="code block-code">
+            <p>companies %>% filter(!is.na(fyear), !is.na(loc)) %>%
+              &nbsp;&nbsp;&nbsp;&nbsp;select(gvkey, fyear, loc, emp)</p>
+          </div>
+          <p>To find the total number of employees in each <span class="code">loc</span>, we have to group by fyear and loc, then use
+          the sum function:</p>
+          <div class="code block-code">
+            <p>%>% group_by(fyear, loc) %>% mutate(emp_yr_loc = sum(emp, na.rm=TRUE))</p>
+          </div>
+          <p>To get the number of employees working for firms that has above 5000 employees, we use if_else():</p>
+          <div class="code block-code">
+            <p>mutate(emp_yr_loc_big = sum(if_else(emp>5, emp, 0), na.rm=TRUE))</p>
+          </div>
+          <p>This block of code is basically saying that if the firm has more than 5000 employees, add the number of employees. Otherwise, sum 0.</p>
+          <p>Then, to get the ratio we simply divide emp_yr_loc_big by emp_yr_loc:</p>
+          <div class="code block-code">
+            <p>mutate(ratio_emp = emp_yr_loc_big / emp_yr_loc, na.rm=TRUE))</p>
+          </div>
+          <p>Running all of the above code and combining the mutate()s together will result in a table like the following:</p>
+          <table class="btm-table">
+            <tr class="selected">
+              <td></td>
+              <td>gvkey</td>
+              <td>fyear</td>
+              <td>loc</td>
+              <td>emp_yr_loc</td>
+              <td>emp_yr_loc_big</td>
+              <td>ratio_emp</td>
+            </tr>
+            <tr>
+              <td class="selected">1</td>
+              <td>001004</td>
+              <td>1994</td>
+              <td>USA</td>
+              <td>34130.69</td>
+              <td>29023.78</td>
+              <td>0.8503720</td>
+            </tr>
+            <tr>
+              <td class="selected">2</td>
+              <td>001004</td>
+              <td>1995</td>
+              <td>USA</td>
+              <td>35979.66</td>
+              <td>30769.87</td>
+              <td>0.8552018</td>
+            </tr>
+            <tr>
+              <td class="selected">3</td>
+              <td>001004</td>
+              <td>1996</td>
+              <td>USA</td>
+              <td>37728.84</td>
+              <td>32223.84</td>
+              <td>0.8540904</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>arrange() Function</h3>
+          <p>The arrange() function orders the row(s) by the variables specified. The default is ascending order. For example, to order
+            the dataset with ascending year but descending cash, we do the following:</p>
+          <div class="code block-code">
+            <p>ordered <- companies %>% <span class="keyword">arrange</span>(fyear, desc(ch))</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </body>
+</html>

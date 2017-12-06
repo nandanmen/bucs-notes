@@ -1,0 +1,248 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>COMM 205: Merging Datasets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../landing-page.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- <div class="header">
+    <div class="header__container">
+      <div class="header__title">
+        <h1>Merging Datasets</h1>
+      </div>
+      <div class="header__description">
+        <div class="header__description__before"></div>
+        COMM 205 - R Studio
+        <div class="header__description__after"></div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="content__container">
+    <div class="class__title__container">
+      <div class="title__heading">
+        <div class="title__heading__before"></div>
+        <!-- change this to whatever the class title is -->
+        <h2 class="title__heading__text"><a href="205-main.html">COMM 205</a></h2>
+      </div>
+      <div class="navigation__item__description">
+        <!-- change this to the class description -->
+        Introduction to Management Information Systems
+      </div>
+    </div>
+
+    <!-- All page content goes here -->
+
+    <div class="page">
+      <div class="page__title__container">
+        <h1 class="page__title">Merging Datasets</h1>
+      </div>
+      <div class="page__content">
+        <h2 class="page__subtitle">Checking For Duplicates</h2>
+        <p>In the firms dataset we are given with, we have always assumed that each firm can at most be listed once in any given fiscal year. This may not always be the case. To check for duplicates, we can use the <span class="code code__inline">duplicate()</span> function.</p>
+        <p class="page__quote" id="duplicate">The <span class="code code__inline">duplicate(x)</span> function takes a parameter x and returns a logical vector indicating whether the row is a duplicate of an <em>earlier</em> row.</p>
+        <p>For example, consider the following data frame called <span class="code code__inline">instructors</span>:</p>
+        <table class="code">
+          <tr>
+            <td><strong>Name</strong></td>
+            <td><strong>Course</strong></td>
+          </tr>
+          <tr>
+            <td>Hasan Cavusoglu</td>
+            <td>COMM 205</td>
+          </tr>
+          <tr>
+            <td>Carson Woo</td>
+            <td>COMM 436</td>
+          </tr>
+          <tr>
+            <td>Hasan Cavusoglu</td>
+            <td>COMM 205</td>
+          </tr>
+          <tr>
+            <td>Adam Saunders</td>
+            <td>COMM 438</td>
+          </tr>
+        </table>
+        <p>Running <span class="code code__inline">duplicate(instructors)</span> would return <span class="code code__inline">[FALSE FALSE TRUE FALSE]</span>.</p>
+        <p>Using <span class="code code__inline">filter()</span> in combination with <span class="code code__inline">duplicate()</span> allows you to return the piece of data that has duplicates:</p>
+        <div class="code code__block">
+          duplicates %>% <span class="keyword">duplicate</span>(instructors)<br />
+          instructors %>% <span class="keyword">filter</span>(duplicates) <br />
+          <span class="comment">// returns [Hasan Cavusoglu, COMM 205]</span>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Joining Datasets</h2>
+        <p>Joining two different data frames can be done using either the <span class="code code__inline">inner_join()</span> function or the <span class="code code__inline">left_join()</span> function.</p>
+        <p>Both of these functions uses matching attributes from the two data frames to combine them together. However they differ in the way that they use these matching attributes.</p>
+        <br />
+        <h3 class="page__subtitle">The <span class="code code__inline">inner_join()</span> Function</h3>
+        <p>The <span class="code code__inline">inner_join(x, y)</span> function returns all rows from data frame x that has a matching value in y, and all columns in y.</p>
+        <p>Say we want to merge together a data frame called <span class="code code__inline">prof</span>:</p>
+        <table class="code">
+          <tr>
+            <td><strong>emp_id</strong></td>
+            <td><strong>name</strong></td>
+          </tr>
+          <tr>
+            <td>007</td>
+            <td>Hasan Cavusoglu</td>
+          </tr>
+          <tr>
+            <td>010</td>
+            <td>Ning Nan</td>
+          </tr>
+          <tr>
+            <td>013</td>
+            <td>YM Cheung</td>
+          </tr>
+        </table>
+        <p>With a data frame called <span class="code code__inline">prof_background</span>:</p>
+        <table class="code">
+          <tr>
+            <td><strong>emp_id</strong></td>
+            <td><strong>masters</strong></td>
+          </tr>
+          <tr>
+            <td>007</td>
+            <td>UT Dallas</td>
+          </tr>
+          <tr>
+            <td>010</td>
+            <td>Minnesota</td>
+          </tr>
+          <tr>
+            <td>014</td>
+            <td>UBC</td>
+          </tr>
+        </table>
+        <p>The code <span class="code code__inline">inner_join(prof, prof_background)</span> will output the following data frame:</p>
+        <table class="code">
+          <tr>
+            <td><strong>emp_id</strong></td>
+            <td><strong>name</strong></td>
+            <td><strong>masters</strong></td>
+          </tr>
+          <tr>
+            <td>007</td>
+            <td>Hasan Cavusoglu</td>
+            <td>UT Dallas</td>
+          </tr>
+          <tr>
+            <td>010</td>
+            <td>Ning Nan</td>
+            <td>Minnesota</td>
+          </tr>
+        </table>
+        <p>As you can see, <span class="code code__inline">emp_id = <strong>13</strong></span> is omitted from the new data frame because there is no match in <span class="code code__inline">prof_background</span>.</p>
+        <br />
+        <h3 class="page__subtitle">The <span class="code code__inline">left_join()</span> Function</h3>
+        <p>The main difference between <span class="code code__inline">left_join(x, y)</span> and <span class="code code__inline">inner_join(x, y)</span> is that the former maintains <strong>all</strong> rows from the x data frame.</p>
+        <p class="page__quote">If one of the rows has no match in y, NA is used instead.</p>
+        <p>Let's use the same example as before. Running the code <span class="code code__inline">left_join(prof, prof_background)</span> will result in the following data frame:</p>
+        <table class="code">
+          <tr>
+            <td><strong>emp_id</strong></td>
+            <td><strong>name</strong></td>
+            <td><strong>masters</strong></td>
+          </tr>
+          <tr>
+            <td>007</td>
+            <td>Hasan Cavusoglu</td>
+            <td>UT Dallas</td>
+          </tr>
+          <tr>
+            <td>010</td>
+            <td>Ning Nan</td>
+            <td>Minnesota</td>
+          </tr>
+          <tr>
+            <td>013</td>
+            <td>YM Cheung</td>
+            <td><em class="comment">NA</em></td>
+          </tr>
+        </table>
+        <br />
+        <br />
+        <h3 class="page__subtitle">Merging With Different Attribute Names</h3>
+        <p>Sometimes the identifier that we want to use to merge data frames have different names. In this case, we can add a parameter to either join function to make it work:</p>
+        <div class="code code__block">
+          inner_join(x, y, by = <span class="keyword">c</span>("<em>name_in_x</em>" = "<em>name_in_y</em>"))
+        </div>
+        <p>Where <span class="code code__inline">name_in_x</span> is the name of the identifier in x and <span class="code code__inline">name_in_y</span> is the name of the identifier in y.</p>
+        <p>Essentially this instructs R to match the variable <span class="code code__inline">name_in_x</span> with the variable <span class="code code__inline">name_in_y</span>.</p>
+      </div>
+
+    </div>
+
+    <!-------------------------------->
+
+    <div class="menu__container">
+      <div class="notes__container">
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              Data Types
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              R Markdown
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              Data Frames & NAs
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              Data Wrangling I
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              Data Wrangling II
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              Data Wrangling III
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container active">
+            <div class="note__title">
+              Merging Datasets
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,373 @@
+
+/* --- HEADER --- */
+
+.header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-top: 80px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid #EAEDF0;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.header__title {
+  text-transform: uppercase;
+  font-size: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.header__description {
+  display: flex;
+  margin-top: 12px;
+  font-family: 'Ubuntu Mono';
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.2em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header__description__before {
+  border-top: 1px solid #959BA0;
+  position: relative;
+  flex: 1;
+  top: 10px;
+  margin-right: 12px;
+}
+
+.header__description__after {
+  border-top: 1px solid #959BA0;
+  position: relative;
+  flex: 1;
+  top: 10px;
+  margin-left: 12px;
+}
+
+/* --- CLASS TITLE --- */
+
+.class__title__container {
+  position: fixed;
+  text-align: right;
+  height: 80px;
+  width: 230px;
+  padding-left: 30px;
+  padding-right: 30px;
+  align-self: center;
+  margin-left: 30px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-right: 1px solid #EAEDF0;
+  top: 25%;
+}
+
+.title__heading__text a {
+  color: #5D6063;
+  text-decoration: none;
+}
+
+.title__heading__text a:hover {
+  color: #5995DA;
+}
+
+/* --- PAGE --- */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  line-height: 1.8em;
+  font-size: 16px;
+  z-index: 3;
+}
+
+.page__content {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #EAEDF0;
+  font-size: 17px;
+  line-height: 1.8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* --- Page Title --- */
+
+.page__title__container {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #EAEDF0;
+}
+
+.page__title {
+  text-transform: uppercase;
+}
+
+.page__title__caption {
+  font-style: italic;
+  font-family: 'Ubuntu Mono';
+}
+
+.typewriter {
+  display: flex;
+}
+
+.typewriter h1 {
+  overflow: hidden;
+  border-right: 3px solid #5995DA;
+  white-space: nowrap;
+  animation:
+    typing 2.5s steps(44, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #5995DA }
+}
+
+/* --- Page Items --- */
+
+.page__content p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.page__content p:last-child {
+  margin-bottom: 0;
+}
+
+.page__content p:only-child,
+.page__content p:first-of-type {
+  margin-top: 0;
+}
+
+.page__content p + p {
+  margin-top: 0;
+}
+
+.page__subtitle {
+  font-family: 'Ubuntu';
+  margin-bottom: 20px;
+}
+
+h2.page__subtitle {
+  font-size: 24px;
+}
+
+h3.page__subtitle {
+  font-size: 20px;
+}
+
+h3.page__example__subtitle {
+  font-size: 18px;
+}
+
+.page__quote {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  border-left: 3px solid #5995DA;
+  font-family: 'Ubuntu Mono';
+}
+
+.page__list {
+  padding-left: 30px;
+}
+
+/* --- Examples --- */
+
+.page__example {
+  display: none;
+  padding-top: 20px;
+}
+
+.page__example__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page__example__subtitle {
+  flex: 4;
+  max-width: 60%;
+}
+
+.page__example__button {
+  font-family: 'Ubuntu Mono';
+  text-align: center;
+  font-size: 0.8em;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #fff;
+  align-self: center;
+  cursor: pointer;
+  border: 1px solid #5D6063;
+  box-shadow: 0em 0em 0 0 #bbb;
+  transition: 0.25s box-shadow, 0.25s transform;
+}
+
+.page__example__button:hover {
+  box-shadow: 0 3px 0 0 #bbb;
+  transform: translate(0, -3px);
+}
+
+/* --- Table Elements --- */
+
+table, td, th {
+  margin: 0 auto;
+  border: 1px solid #EAEDF0;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+td, th {
+  padding: 8px;
+}
+
+.table__highlight {
+  background-color: #EAEDF0;
+}
+
+/* --- Code Elements --- */
+
+.code {
+  font-family: 'Ubuntu Mono';
+}
+
+.code__inline {
+  background-color: #f5f5f5;
+  padding: 5px;
+}
+
+.code__block {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  border-left: 5px solid #5D6063;
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.comment {
+  color: #9e9e9e;
+}
+
+.keyword {
+  color: #5995DA;
+}
+
+.spoiler {
+  color: #f5f5f5;
+}
+
+.spoiler:hover {
+  color: #5D6063;
+}
+
+/* --- Accounting Specific --- */
+
+.income_statement {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.income_statement__multi {
+  width: 80%;
+}
+
+.income_statement__title {
+  text-align: center;
+  border-bottom: 1px solid #5D6063;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.income_statement__content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.income_statement__text {
+  flex: 3;
+}
+
+.income_statement__subtext {
+  padding-left: 15px;
+}
+
+.income_statement__numbers {
+  margin-left: 10px;
+  text-align: right;
+  flex: 1;
+}
+
+.income_statement__total {
+  border-top: 1px solid #5D6063;
+}
+
+/* --- MENU BAR --- */
+
+.menu__container {
+  top: 15%;
+  right: 0;
+  position: fixed;
+  display: flex;
+  align-self: center;
+  width: 230px;
+  font-size: 0.9em;
+  margin-right: 30px;
+}
+
+.menu__container__right {
+  left: 0;
+  margin-right: 0;
+  margin-left: 30px;
+}
+
+.active {
+  background-color: #2f3133;
+  color: #fff;
+}
+
+.active:hover {
+  background-color: #2f3133;
+  color: #fff;
+}
+
+/* --- HELPER CLASSES --- */
+
+.condense > .income_statement__text,
+.condense > .income_statement__numbers {
+  flex: 2;
+}
+
+.condense {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.question {
+  padding-bottom: 5px;
+  border-bottom: 3px solid #5D6063;
+  width: 15%;
+}

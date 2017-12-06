@@ -1,0 +1,358 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>COMM 294: Standard Costing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../landing-page.css" type="text/css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../test.js"></script>
+</head>
+<body>
+
+  <div class="content__container">
+    <div class="class__title__container">
+      <div class="title__heading">
+        <div class="title__heading__before"></div>
+        <!-- change this to whatever the class title is -->
+        <h2 class="title__heading__text"><a href="294-main.html">COMM 294</a></h2>
+      </div>
+      <div class="navigation__item__description">
+        <!-- change this to the class description -->
+        Managerial Accounting
+      </div>
+    </div>
+
+    <!-- All page content goes here -->
+
+    <div class="page">
+      <div class="page__title__container">
+        <div class="typewriter">
+          <h1 class="page__title">Standard Costing</h1>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Standard Costing System</h2>
+        <p>A standard costing system allows us to monitor, analyze, and amend operational strategies on an ongoing basis.</p>
+        <p>A <strong>standard</strong> is a benchmark for measuring performance. In this course there are two types:</p>
+        <ul class="page__list">
+          <li>Cost standards</li>
+          <li>Quantity standards</li>
+        </ul>
+        <p>These standards are compared with actual costs to find variances. These variances are used to measure and investigate performance.</p>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Direct Materials</h2>
+        <p>There are two standards for direct materials:</p>
+        <p><strong>Standard material price</strong>, which is the <em>landed cost</em> of needed materials for one unit.</p>
+        <ul class="page__list">
+          <li>A <strong>landed cost</strong> is the total price of a product once it has arrived at a buyer's door. This includes the original price, all transportation fees, customs, duties, taxes, insurance, currency conversion, crafting, handling and payment fees.</li>
+        </ul>
+        <p><strong>Standard material quantity</strong>, which is the material needed to produce one unit of product.</p>
+        <ul class="page__list">
+          <li>Allows for unavoidable and/or reasonable waste, spoilage, rejects. Based on a bill of materials.</li>
+        </ul>
+        <br />
+        <h3 class="page__subtitle">Variances</h3>
+        <p>The direct materials price variance or MVP <strong>(Materials Price Variance)</strong>, is calculated as follows. This is based on <strong>amount purchased</strong>.</p>
+        <div class="code code__block">
+          Actual quantity x (Actual price - Standard price)
+        </div>
+        <p>The direct materials quantity variance or MQP <strong>(Materials Quantity Variance)</strong>, is calculated as follows. This is based on <strong>amount used</strong>.</p>
+        <div class="code code__block">
+          Standard price x (Actual quantity - Standard quantity)
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Direct Labour</h2>
+        <p><strong>Standard labour rate</strong> is the estimated hourly cost of total compensation.</p>
+        <ul class="page__list">
+          <li>Includes fringe benefits and taxes.</li>
+        </ul>
+        <p><strong>Standard labour quantity</strong> is the engineered time per unit, i.e. usual number of hours needed to manufacture the unit.</p>
+        <ul class="page__list">
+          <li>Allows for machine downtime, idle time, breaks, etc.</li>
+        </ul>
+        <br />
+        <h3 class="page__subtitle">Variances</h3>
+        <p><strong>Labour rate variance</strong> (LRV) is calculated as follows:</p>
+        <div class="code code__block">
+          Actual hours x (Actual rate - Standard rate)
+        </div>
+        <p><strong>Labour efficiency variance</strong> (LEV) is calculated as follows:</p>
+        <div class="code code__block">
+          Standard rate x (Actual hours - Standard hours)
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Variable MOH</h2>
+        <p><strong>Standard overhead rate</strong> is the variable part of the pre-determined overhead rate.</p>
+        <p><strong>Standard overhead quantity</strong> is the typical amount of activity that is used to calculate the overhead rate.</p>
+        <h3 class="page__subtitle">Variances</h3>
+        <p><strong>Variable overhead spending variance</strong> (VOSV) is calculated as follows:</p>
+        <div class="code code__block">
+          Actual hours x (Actual rate - Standard rate)
+        </div>
+        <p><strong>Variable overhead efficiency variance</strong> (VOEV) is calculated as follows:</p>
+        <div class="code code__block">
+          Standard rate x (Actual hours - Standard hours)
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Problem 1</h3>
+        <p>Wangsgard Manufacturing has the following standard cost for one of its products:</p>
+        <div class="income_statement code">
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Direct materials (2m @ $5)<br />
+              Direct labour (0.5h @ $10)<br />
+              Fixed overhead<br />
+              Variable overhead<br />
+              Standard cost
+            </div>
+            <div class="income_statement__numbers">
+              $ 10<br />
+              5<br />
+              1<br />
+              2
+              <div class="income_statement__total">
+                $18
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>During the year, they incurred the following costs:</p>
+        <div class="income_statement code">
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Production<br />
+              Fixed overhead<br />
+              Variable overhead<br />
+              Direct materials (11,750m purchased and used)<br />
+              Direct labour (2,900h)
+            </div>
+            <div class="income_statement__numbers">
+              # 6,000<br />
+              $ 6,000<br />
+              10,000<br />
+              <br />
+              61,100<br />
+              29,580
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">Compute the materials and labour variances.</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p><strong>Material variances:</strong></p>
+          <p>The materials price variance is:</p>
+          <div class="code code__block">
+            Actual quantity = 11,750 metres<br />
+            Actual price = 61,100 / 6,000 = $10.183<br />
+            Standard price = $10<br />
+            MPV = 11,750 x (10.183 - 10) = <span class="keyword">$2,150.25 Unfavorable</span>
+          </div>
+          <p>The materials quantity variance is:</p>
+          <div class="code code__block">
+            Standard price = $10<br />
+            Actual quantity = 11,750 metres<br />
+            Standard quantity = 2 x 6,000 = 12,000 meters<br />
+            MQV = 10 x (11,750 - 12,000) = <span class="keyword">$2,500 Favorable</span>
+          </div>
+          <br />
+          <p><strong>Labour variances:</strong></p>
+          <p>The labour rate variance is:</p>
+          <div class="code code__block">
+            Actual hours = 2,900 hours<br />
+            Actual rate = 29,580 / 2,900 = $10.2/h<br />
+            Standard rate = $10/h<br />
+            LRV = 2,900 x (10.2 - 10) = <span class="keyword">$580 Unfavorable</span>
+          </div>
+          <p>The labour efficiency variance is:</p>
+          <div class="code code__block">
+            Standard rate = $10<br />
+            Actual hours = 2,900 hours<br />
+            Standard hours = 0.5 x 6,000 = 3,000 hours<br />
+            MQV = 10 x (2,900 - 3,000) = <span class="keyword">$1,000 Favorable</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Problem 2</h3>
+        <p>Paula wants to know if her bakery is performing better than the national standards set by the National Bakery Association. The NBA standards for 20 loaves of bread are as follows:</p>
+        <div class="income_statement code">
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Direct labour
+              <div class="income_statement__subtext">
+                0.2 hrs at $12.50 per hr
+              </div>
+              Direct materials
+              <div class="income_statement__subtext">
+                35 kg at $0.20 per kg
+              </div>
+              Total cost for 20 loaves
+            </div>
+            <div class="income_statement__numbers">
+              <br />
+              $ 2.50<br />
+              <br />
+              $ 7.00
+              <div class="income_statement__total">
+                $ 9.50
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>Paula's bakery accrued the following operating results:</p>
+        <div class="income_statement code">
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Production (#loaves)<br />
+              Direct labour hours<br />
+              Direct labour cost<br />
+              Materials purchased<br />
+              Materials used<br />
+              Unit material cost
+            </div>
+            <div class="income_statement__numbers">
+              # 90,000<br />
+              860<br />
+              $ 10,320<br />
+              160,000<br />
+              152,000<br />
+              $ 0.19
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">Compute the materials and labour variances.</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p><strong>Material variances:</strong></p>
+          <p>The materials price variance is:</p>
+          <div class="code code__block">
+            Actual quantity = 160,000 kg<br />
+            Actual price = $0.19<br />
+            Standard price = $0.20<br />
+            MPV = 160,000 x (0.19 - 0.20) = <span class="keyword">$1,600 Favorable</span>
+          </div>
+          <p>The materials quantity variance is:</p>
+          <div class="code code__block">
+            Standard price = $0.20<br />
+            Actual quantity = 152,000<br />
+            Standard quantity = (35/20) x 90,000 = 157,500<br />
+            MQV = 0.20 x (152,500 - 157,500) = <span class="keyword">$5,000 Favorable</span>
+          </div>
+          <br />
+          <p><strong>Labour variances:</strong></p>
+          <p>The labour rate variance is:</p>
+          <div class="code code__block">
+            Actual hours = 860 hours<br />
+            Actual rate = 10,320 / 860 = $12/h<br />
+            Standard rate = $12.50/h<br />
+            LRV = 860 x (12 - 12.50) = <span class="keyword">$430 Favorable</span>
+          </div>
+          <p>The labour efficiency variance is:</p>
+          <div class="code code__block">
+            Standard rate = $12.50<br />
+            Actual hours = 860 hours<br />
+            Standard hours = (0.2/20) x 90,000 = 900 hours<br />
+            MQV = 12.50 x (860 - 900) = <span class="keyword">$500 Favorable</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-------------------------------->
+
+    <div class="menu__container">
+      <div class="notes__container">
+        <div class="notes__wrapper">
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Cost Behaviour
+              </div>
+              <a href="294-cb.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Cost Volume Profit
+              </div>
+              <a href="294-cvp.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Budgeting
+              </div>
+              <a href="294-budget.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container active">
+              <div class="note__title">
+                Standard Costing
+              </div>
+              <a href="294-standard.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Variable & Absorption Costing
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Reporting For Control: ROI and RI
+              </div>
+              <a href="294-roi.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Reporting For Control: Transfer Pricing
+              </div>
+              <a href="294-tpr.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Relevant Costs For Decision Making
+              </div>
+              <a href="294-cdm.html"><span></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

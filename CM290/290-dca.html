@@ -1,0 +1,219 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../main.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="menu">
+      <h3>COMM 294</h3>
+      <a href="#">Transfer Pricing</a>
+      <h3>COMM 290</h3>
+      <a href="../CM290/290-dca.html" class="active">Decision Analysis</a>
+      <a href="../CM290/290-dcae.html">Decision Analysis Example: Sequential Decision</a>
+      <a href="../CM290/290-drv.html">Discrete Random Variables</a>
+      <a href="../CM290/290-bid.html">Bivariate Distributions</a>
+      <h3>COMM 205</h3>
+      <a href="../CM205/index.html">Data Frames and NAs</a>
+      <a href="../CM205/r4.html">Data Wrangling</a>
+      <a href="../CM205/r5.html">Data Wrangling II</a>
+      <a href="../CM205/r6.html">Data Wrangling III</a>
+      <h3>CPSC 210</h3>
+      <a href="#">Robust Design</a>
+      <a href="#">Object Oriented Design I</a>
+      <a href="#">Iterable Abstraction</a>
+      <a href="../CS210/210-ood2.html">Object Oriented Design II</a>
+    </div>
+    <main>
+
+      <div class="section">
+        <div class="text">
+          <h1>Decision Analysis</h1>
+          <h3>The conservative and optimistic methods</h3>
+          <p>Consider the following payoff table for several decisions. D1-4 represents several decisions that we could make, while low-high
+          represent the current state of the economy. The numbers represent possible profits.</p>
+          <table>
+            <tr>
+              <td></td>
+              <td><strong>Low</strong></td>
+              <td><strong>Medium</strong></td>
+              <td><strong>High</strong></td>
+            </tr>
+            <tr>
+              <td><strong>D1</strong></td>
+              <td>50</td>
+              <td>80</td>
+              <td>105</td>
+            </tr>
+            <tr>
+              <td><strong>D2</strong></td>
+              <td>70</td>
+              <td>85</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td><strong>D3</strong></td>
+              <td>20</td>
+              <td>70</td>
+              <td>150</td>
+            </tr>
+            <tr>
+              <td><strong>D4</strong></td>
+              <td>20</td>
+              <td>60</td>
+              <td>140</td>
+            </tr>
+          </table>
+          <p>The <strong>conservative</strong> approach chooses the highest possible outcome out of the worst outcomes. When the economy is low, the highest
+            profits are given by decision D2.</p>
+          <p>The <strong>optimistic</strong> approach chooses the highest possible outcome available. In this case, that outcome is given by choice D3.</p>
+          <h3>The Regret Approach</h3>
+          <p>The <strong>regret</strong> approach chooses the option with lowest maximum regret. Regret is defined as the difference between the best
+          decision and your decision given the variable. In this case, the difference given the state of the economy.</p>
+          <p>Regret can be shown with a regret matrix:</p>
+          <table>
+            <tr>
+              <td></td>
+              <td><strong>Low</strong></td>
+              <td><strong>Medium</strong></td>
+              <td><strong>High</strong></td>
+            </tr>
+            <tr>
+              <td><strong>D1</strong></td>
+              <td>70 - 50</td>
+              <td>85 - 80</td>
+              <td class="selected">150 - 105</td>
+            </tr>
+            <tr>
+              <td><strong>D2</strong></td>
+              <td>70 - 70</td>
+              <td>85 - 85</td>
+              <td class="selected">150 - 90</td>
+            </tr>
+            <tr>
+              <td><strong>D3</strong></td>
+              <td class="selected">70 - 20</td>
+              <td>85 - 70</td>
+              <td>150 - 50</td>
+            </tr>
+            <tr>
+              <td><strong>D4</strong></td>
+              <td class="selected">70 - 20</td>
+              <td>85 - 60</td>
+              <td>150 - 140</td>
+            </tr>
+          </table>
+          <p>The selected boxes repesent the values where regret is maximum. The maximum regret from each decision would then be:</p>
+          <table>
+            <tr>
+              <td></td>
+              <td><strong>Regret</strong></td>
+            </tr>
+            <tr>
+              <td><strong>D1</strong></td>
+              <td>45</td>
+            </tr>
+            <tr>
+              <td><strong>D2</strong></td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td><strong>D3</strong></td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td><strong>D4</strong></td>
+              <td>50</td>
+            </tr>
+          </table>
+          <p>Since decision D1 has the lowest regret out of the other decisions, D1 would be the preferred choice.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>Expected Monetary Value</h3>
+          <p>Say we now have the information of the probabilities of the economy being low, medium, or high. The probabilities are as follows:</p>
+          <table>
+            <tr>
+              <td></td>
+              <td><strong>Low</strong></td>
+              <td><strong>Medium</strong></td>
+              <td><strong>High</strong></td>
+            </tr>
+            <tr>
+              <td><strong>P()</strong></td>
+              <td>0.5</td>
+              <td>0.2</td>
+              <td>0.3</td>
+            </tr>
+          </table>
+          <p>We can then use the <strong>expected monetary value</strong> method to help make decisions. We essentially calculate the
+          expected value from each decision and choose the decision with the highest expected profits:</p>
+          <table>
+            <tr>
+              <td></td>
+              <td><strong>Expected Monetary Value</strong></td></tr>
+            <tr>
+              <td><strong>D1</strong></td>
+              <td>0.5(50) + 0.2(80) + 0.3(105) = <strong>72.5</strong></td></tr>
+            <tr class="selected">
+              <td><strong>D2</strong></td>
+              <td>0.5(70) + 0.2(85) + 0.3(90) = <strong>79</strong></td></tr>
+            <tr>
+              <td><strong>D3</strong></td>
+              <td>0.5(20) + 0.2(70) + 0.3(150) = <strong>69</strong></td></tr>
+            <tr>
+              <td><strong>D4</strong></td>
+              <td>0.5(20) + 0.2(60) + 0.3(140) = <strong>64</strong></td></tr>
+          </table>
+          <p>D2 has the highest expected value, thus D2 is the optimal decision.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>Value of Information</h3>
+          <p>Say we have the option to receive perfect information about our decisions. That is, we know for sure if the economy would
+          be at a low, medium, or high condition. How much are we willing to <strong>pay</strong> for this information?</p>
+          <p>The <strong>value of information</strong> would be the difference between our expected profit with perfect information and
+            our expected profit without:</p>
+          <div class="syntax-block block-code">
+            <p>EVPI = EPPI - EMV</p>
+          </div>
+          <p>If we know the state of the economy, then our decision would be simple. We would just choose the decision with the highest
+          output given the economic state.</p>
+          <table>
+            <tr>
+              <td><strong>If</strong></td>
+              <td><strong>Choose</strong></td>
+              <td><strong>Profits</strong></td>
+            </tr>
+            <tr>
+              <td>Low</td>
+              <td>D2</td>
+              <td>70</td>
+            </tr>
+            <tr>
+              <td>Medium</td>
+              <td>D2</td>
+              <td>85</td>
+            </tr>
+            <tr>
+              <td>High</td>
+              <td>D3</td>
+              <td>150</td>
+            </tr>
+          </table>
+          <p>Given the above probabilities, the expected profits with perfect information would be:</p>
+          <div class="code block-code math">
+            <p>E(X) = 70(0.5) + 85(0.2) + 150(0.3) = 97</p>
+          </div>
+          <p>We know that the EMV is 79 (from the table above), and so we would pay up to 97 - 79 = <strong>18</strong> for perfect information.</p>
+        </div>
+      </div>
+
+    </main>
+  </body>
+</html>

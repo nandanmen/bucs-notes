@@ -1,0 +1,620 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>COMM 294: Cost Volume Profit Analysis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../landing-page.css" type="text/css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../test.js"></script>
+</head>
+<body>
+
+  <div class="content__container">
+    <div class="class__title__container">
+      <div class="title__heading">
+        <div class="title__heading__before"></div>
+        <!-- change this to whatever the class title is -->
+        <h2 class="title__heading__text"><a href="294-main.html">COMM 294</a></h2>
+      </div>
+      <div class="navigation__item__description">
+        <!-- change this to the class description -->
+        Managerial Accounting
+      </div>
+    </div>
+
+    <!-- All page content goes here -->
+
+    <div class="page">
+      <div class="page__title__container">
+        <div class="typewriter">
+          <h1 class="page__title">Cost Volume Profit Analysis</h1>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Contribution Margin</h2>
+        <p>Say we are given the following income statement:</p>
+        <div class="income_statement code">
+          <div class="income_statement__title">
+            Bicycle Company<br />
+            For The Month Ending June 2017
+          </div>
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Sales (#500)<br />
+              Less Variable Expenses<br />
+              Contribution Margin<br />
+              Less Fixed Expenses<br />
+              Net Operating Income
+            </div>
+            <div class="income_statement__numbers">
+              $ 250,000<br />
+              150,000
+              <div class="income_statement__total">
+                $ 100,000
+              </div>
+              80,000
+              <div class="income_statement__total">
+                $ 20,000
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>The <strong>per-unit</strong> contribution margin would just be the contribution margin divided by the total number of units:</p>
+        <div class="code code__block">
+          UCM = 100,000 / 500 = <span class="keyword">$200</span>
+        </div>
+        <p>The <strong>CM ratio</strong> is the contribution margin divided by total sales:</p>
+        <div class="code code__block">
+          CM Ratio = 100,000 / 250,000 = <span class="keyword">%40</span>
+        </div>
+        <p>The CM ratio can also be defined as the increase in contribution margin for every dollar increase in sales. For this bicycle company, every dollar increase in sales will increase contribution margin by $0.4.</p>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Example Problem 1</h3>
+        <p>The bicycle company believes it can increase sales to 540 units if it spends $10,000 on advertising. Would you recommend that the advertising campaign be undertaken?</p>
+        <p><strong>Solution</strong></p>
+        <p>The <strong>increase</strong> in contribution margin will be:</p>
+        <div class="code code__block">
+          UCM x Change in Sales = $200 x (540 - 500) = <span class="keyword">+$8,000</span>
+        </div>
+        <p>However, fixed expenses will increase by $10,000. Therefore the change in net income will be:</p>
+        <div class="code code__block">
+          +8,000 + (-10,000) = <span class="keyword">-$2,000</span>
+        </div>
+        <p>Therefore it is <strong>not recommended</strong> that the advertising campaign be undertaken.</p>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Example Problem 2</h3>
+        <p>What is the profit impact if the company cuts its selling price by $20 and increases its advertising budget by $15,000, increasing sales from 500 to 650 units per month?</p>
+        <p><strong>Solution</strong></p>
+        <p>The company's <strong>original</strong> selling price is:</p>
+        <div class="code code__block">
+          Sales / # Units = $250,000 / 500 = <span class="keyword">$500/unit</span>
+        </div>
+        <p>Therefore the new total sales would be:</p>
+        <div class="code code__block">
+          Sales price x # Units = (500 - 20) x 650 = <span class="keyword">$312,000</span>
+        </div>
+        <p>The new contribution margin would be:</p>
+        <div class="code code__block">
+          CM ratio x Sales = %40 x 312,000 = <span class="keyword">$124,800</span>
+        </div>
+        <p>Fixed expenses increased by $15,000, and so the new net income would be:</p>
+        <div class="code code__block">
+          124,800 - (80,000 + 15,000) = <span class="keyword">$29,800</span>
+        </div>
+        <p>And so the effect on net income would be an increase by <span class="code code__inline">$9,800</span>.</p>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Break-Even Analysis</h2>
+        <h3 class="page__subtitle">The Equation Method</h3>
+        <p>There are two equations that we can use to find the break-even point, depending on whether we want to find it in terms of sales <strong>quantity</strong> or in terms of sales <strong>dollars</strong>.</p>
+        <p>In terms of sales quantity:</p>
+        <div class="code code__block">
+          Break-Even Q = <br />
+          Total Fixed Expenses / (Unit Selling Price - Unit Variable Cost)
+        </div>
+        <p>In terms of sales dollars:</p>
+        <div class="code code__block">
+          Break-Even Sales $ = <br />
+          Total Fixed Expenses / (1 - Variable Cost (as a % of sales))
+        </div>
+        <br />
+        <h3 class="page__subtitle">The Contribution Method</h3>
+        <p>We can refactor the above equations in terms of contribution margin.</p>
+        <p>Since <span class="code code__inline">(Unit Selling Price - Unit Variable Cost)</span> is equal to Unit Contribution Margin, the equation can be rewritten as:</p>
+        <div class="code code__block">
+          Break-Even Q = <br />
+          Total Fixed Expenses / Unit Contribution Margin
+        </div>
+        <p>Similarly, <span class="code code__inline">1 - Variable Cost (as a % of sales)</span> is equal to the CM ratio. Therefore:</p>
+        <div class="code code__block">
+          Break-Even Sales $ = <br />
+          Total Fixed Expenses / CM Ratio
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Target Profit Analysis</h2>
+        <p>The equation and contribution margin methods may be used to determine the sales volume needed to achieve a particular target profit.</p>
+        <p>To do this, we just add the target profit to the fixed expenses as follows:</p>
+        <div class="code code__block">
+          Break-Even Sales $ = <br />
+          Total Fixed Expenses <span class="keyword">+ Target Profit</span> / CM Ratio
+        </div>
+        <p>There may be questions that ask for <strong>after-tax</strong> or <strong>before-tax</strong> target profit. In this case, we have to convert to before-tax target profit before doing any calculations.</p>
+        <p>The formula for this is:</p>
+        <div class="code code__block">
+          <em>Before-Tax</em> Target Profit = <br />
+          <em>After-Tax</em> Target Profit / (1 - Tax Rate)
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Example Problem</h3>
+        <p>The break-even point in sales for XYZ Company is <span class="code code__inline">$360,000</span>, and the company's contribution margin ratio is <span class="code code__inline">20%</span>. Its income tax rate is <span class="code code__inline">40%</span>.</p>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">If XYZ desires an after-tax profit of <span class="code code__inline">$84,000</span>, what would total sales have to be?</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>An $84,000 after-tax profit and an income tax rate of 40% translates to a before-tax profit of:</p>
+          <div class="code code__block">
+            84,000/(1-0.40) = <span class="keyword">$140,000</span>
+          </div>
+          <p>We then need to find the total fixed expenses of the company. Break-even sales is $360,000, therefore:</p>
+          <div class="code code__block">
+            360,000 = (Fixed Expenses)/0.20<br />
+            Fixed Expenses = 360,000 x 0.20 = <span class="keyword">$72,000</span>
+          </div>
+          <p>We then put fixed expenses and the target profit together to find the required sales amount:</p>
+          <div class="code code__block">
+            Required sales $ = (72,000 + 140,000)/0.20 = <span class="keyword">$1,060,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Margin of Safety</h2>
+        <p>The margin of safety is the excess of budgeted (or actual) sales over the break-even volume of sales.</p>
+        <div class="code code__block">
+          Margin of Safety ($) = Total sales - Break-even sales<br />
+          Margin of Safety (%) = Margin of Safety ($) / Total sales<br />
+          Margin of Safety (#) = #Units sold - #BE units = Margin of Safety ($) / Unit Selling Price
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Operating Leverage</h2>
+        <p>The degree of operating leverage is a measure of how sensitive net income is to a % change in sales.</p>
+        <div class="code code__block">
+          Degree of operating leverage = Contribution Margin / Net Income
+        </div>
+        <p>Essentially it tells you what % income would change given a % change in sales.</p>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Sales Mix</h2>
+        <p>Often a company would not be selling only one product. The <strong>sales mix</strong> of a company is the relative proportion in which a company's products are sold.</p>
+        <p>The <strong>overall CM ratio</strong> of a company is equal to the weighted average of the individual ratios.</p>
+      </div>
+
+      <div class="page__content">
+        <p>Let's assume that the bike company from before now sells bikes <strong>and</strong> carts. The contribution income statements for bikes and carts respectively are shown below.</p>
+        <div class="income_statement income_statement__multi code">
+          <div class="income_statement__title">
+            Bikes
+          </div>
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Sales revenue<br />
+              Variable expenses<br />
+              Contribution margin
+            </div>
+            <div class="income_statement__numbers">
+              $ 250,000
+              150,000
+              <div class="income_statement__total">
+                $ 100,000
+              </div>
+            </div>
+            <div class="income_statement__numbers">
+              100%<br />
+              60%
+              <div class="income_statement__total">
+                40%
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="income_statement income_statement__multi code">
+          <div class="income_statement__title">
+            Carts
+          </div>
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Sales revenue<br />
+              Variable expenses<br />
+              Contribution margin
+            </div>
+            <div class="income_statement__numbers">
+              $ 300,000
+              135,000
+              <div class="income_statement__total">
+                $ 165,000
+              </div>
+            </div>
+            <div class="income_statement__numbers">
+              100%<br />
+              45%
+              <div class="income_statement__total">
+                55%
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>The overall contribution margin ratio is the weighted average of the individual contribution margins. To find the weighted average, we first need to find the sales mix:</p>
+        <div class="code code__block">
+          Total sales = 250,000 + 300,000 = 550,000<br />
+          Bikes = 250,000/550,000 = <span class="keyword">45%</span><br />
+          Carts = 300,000/550,000 = <span class="keyword">55%</span>
+        </div>
+        <p>The overall CM ratio is therefore:</p>
+        <div class="code code__block">
+          Overall CM ratio = 0.45(40) + 0.55(55) = <span class="keyword">48.25</span>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Sample CVP Problem</h2>
+        <p>A small company manufactures and sells two types of gloves - Warm and Cozy. Current revenue, cost, and unit sales data for the two products are as follows:</p>
+        <table class="code">
+          <tr>
+            <td></td>
+            <td><strong>Warm</strong></td>
+            <td><strong>Cozy</strong></td>
+          </tr>
+          <tr>
+            <td>Selling price per pair</td>
+            <td>$8.00</td>
+            <td>$12.00</td>
+          </tr>
+          <tr>
+            <td>Variable expenses per pair</td>
+            <td>$2.00</td>
+            <td>$6.00</td>
+          </tr>
+          <tr>
+            <td>Number of pairs sold monthly</td>
+            <td>600</td>
+            <td>200</td>
+          </tr>
+        </table>
+        <p>Fixed expenses are <span class="code code__inline">$2,250</span> per month.</p>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h4 class="page__example__subtitle">Prepare a contribution income statement showing both dollars and percentage columns for each product and for the company as a whole.</h4>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <br />
+          <div class="income_statement income_statement__multi code">
+            <div class="income_statement__title">
+              Warm
+            </div>
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                Sales revenue (#600)<br />
+                Variable expenses<br />
+                Contribution margin
+              </div>
+              <div class="income_statement__numbers">
+                $ 4,800
+                1,200
+                <div class="income_statement__total">
+                  $ 3,600
+                </div>
+              </div>
+              <div class="income_statement__numbers">
+                100%<br />
+                25%
+                <div class="income_statement__total">
+                  75%
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="income_statement income_statement__multi code">
+            <div class="income_statement__title">
+              Cozy
+            </div>
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                Sales revenue (#200)<br />
+                Variable expenses<br />
+                Contribution margin
+              </div>
+              <div class="income_statement__numbers">
+                $ 2,400
+                1,200
+                <div class="income_statement__total">
+                  $ 1,200
+                </div>
+              </div>
+              <div class="income_statement__numbers">
+                100%<br />
+                50%
+                <div class="income_statement__total">
+                  50%
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="income_statement income_statement__multi code">
+            <div class="income_statement__title">
+              Overall Company
+            </div>
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                Sales revenue<br />
+                Variable expenses<br />
+                Contribution margin<br />
+                Fixed expenses<br />
+                Net income
+              </div>
+              <div class="income_statement__numbers">
+                $ 7,200
+                2,400
+                <div class="income_statement__total">
+                  $ 4,800
+                </div>
+                2,250
+                <div class="income_statement__total">
+                  $ 2,550
+                </div>
+              </div>
+              <div class="income_statement__numbers">
+                100%<br />
+                33.33%
+                <div class="income_statement__total">
+                  66.67%
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h4 class="page__example__subtitle">Compute the break-even point in dollars for the company as a whole and the margin of safety in both dollars and percentage of sales.</h4>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>The break even point:</p>
+          <div class="code code__block">
+            BE $ = Fixed expenses / CM ratio = 2,250 / 66.67% = <span class="keyword">$3,375</span>
+          </div>
+          <p>Margin of safety:</p>
+          <div class="code code__block">
+            In $ = $7,200 - $3,375 = <span class="keyword">$3,825</span><br />
+            In % = $3,825 / $7,200 = <span class="keyword">53.13%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h4 class="page__example__subtitle">Compute the break-even point in units for the company as a whole and the margin of safety in both units (pairs of gloves) and percentage of sales.</h4>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>The break even point:</p>
+          <div class="code code__block">
+            UCM = Total CM / Units = $4,800 / 800 = $6<br />
+            BE # = Fixed expenses / UCM = 2,250 / 6 = <span class="keyword">375</span>
+          </div>
+          <p>Margin of safety:</p>
+          <div class="code code__block">
+            In # = 800 - 375 = <span class="keyword">425</span><br />
+            In % = 425 / 800 = <span class="keyword">53.13%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <p>The company has developed another type of glove, Toasty, which the company plans to sell for $20 per pair. At this price, the company expects to sell 200 pairs per month. The variable expense would be $16 per pair.</p>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h4 class="page__example__subtitle">Prepare another contribution format income statement, including sales of Toasty.</h4>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <br />
+          <div class="income_statement income_statement__multi code">
+            <div class="income_statement__title">
+              Toasty
+            </div>
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                Sales revenue (#200)<br />
+                Variable expenses<br />
+                Contribution margin
+              </div>
+              <div class="income_statement__numbers">
+                $ 4,000
+                3,200
+                <div class="income_statement__total">
+                  $ 1,000
+                </div>
+              </div>
+              <div class="income_statement__numbers">
+                100%<br />
+                80%
+                <div class="income_statement__total">
+                  20%
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="income_statement income_statement__multi code">
+            <div class="income_statement__title">
+              Overall Company
+            </div>
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                Sales revenue<br />
+                Variable expenses<br />
+                Contribution margin<br />
+                Fixed expenses<br />
+                Net income
+              </div>
+              <div class="income_statement__numbers">
+                $ 11,200
+                5,600
+                <div class="income_statement__total">
+                  $ 5,600
+                </div>
+                2,250
+                <div class="income_statement__total">
+                  $ 3,350
+                </div>
+              </div>
+              <div class="income_statement__numbers">
+                100%<br />
+                50%
+                <div class="income_statement__total">
+                  50%
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h4 class="page__example__subtitle">Compute the company's new break-even point in dollars for the company as a whole and the margin of safety in both dollars and percentage of sales.</h4>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>The break even point:</p>
+          <div class="code code__block">
+            BE $ = Fixed expenses / CM ratio = 2,250 / 50% = <span class="keyword">$4,500</span>
+          </div>
+          <p>Margin of safety:</p>
+          <div class="code code__block">
+            In $ = $11,200 - $4,500 = <span class="keyword">$6,700</span><br />
+            In % = $6,700 / $11,200 = <span class="keyword">59.82%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <p>The president of the company is puzzled by your analysis. He does not understand why the break-even point has gone up even though there has been no increase in fixed expenses and the addition of the new product has increased the total CM.</p>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h4 class="page__example__subtitle">Explain to the president what has happened.</h4>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-------------------------------->
+
+    <div class="menu__container">
+      <div class="notes__container">
+        <div class="notes__wrapper">
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Cost Behaviour
+              </div>
+              <a href="294-cb.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container active">
+              <div class="note__title">
+                Cost Volume Profit
+              </div>
+              <a href="294-cvp.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Budgeting
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Standard Costing
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Variable & Absorption Costing
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Reporting For Control: ROI and RI
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Reporting For Control: Transfer Pricing
+              </div>
+              <a href="294-tpr.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Relevant Costs For Decision Making
+              </div>
+              <a href="294-cdm.html"><span></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

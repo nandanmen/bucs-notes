@@ -1,0 +1,198 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>COMM 290: Bivariate Distributions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../landing-page.css" type="text/css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../test.js"></script>
+</head>
+<body>
+
+  <div class="content__container">
+    <div class="class__title__container">
+      <div class="title__heading">
+        <div class="title__heading__before"></div>
+        <!-- change this to whatever the class title is -->
+        <h2 class="title__heading__text"><a href="290-main.html">COMM 290</a></h2>
+      </div>
+      <div class="navigation__item__description">
+        <!-- change this to the class description -->
+        Quantitative Decision Making
+      </div>
+    </div>
+
+    <!-- All page content goes here -->
+
+    <div class="page">
+      <div class="page__title__container">
+        <div class="typewriter">
+          <h1 class="page__title">Bivariate Distribution Problems</h1>
+        </div>
+      </div>
+      <div class="page__content__container">
+
+        <div class="page__content">
+          <h2 class="page__subtitle">Tractor Problem: Revisited</h2>
+          <p>A farm equipment dealer has obtained the joint probabilities of selling X tractors and Y combines on the same day:</p>
+          <table class="code">
+            <tr>
+              <td><strong>AND</strong></td>
+              <td><strong>Y = 0</strong></td>
+              <td><strong>Y = 1</strong></td>
+              <td><strong>Y = 2</strong></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>X = 0</strong></td>
+              <td>0.40</td>
+              <td>0.25</td>
+              <td>0.10</td>
+              <td class="table__highlight">0.75</td>
+            </tr>
+            <tr>
+              <td><strong>X = 1</strong></td>
+              <td>0.20</td>
+              <td>0.05</td>
+              <td>0.00</td>
+              <td class="table__highlight">0.25</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="table__highlight">0.60</td>
+              <td class="table__highlight">0.30</td>
+              <td class="table__highlight">0.10</td>
+              <td></td>
+            </tr>
+          </table>
+          <p>Suppose that each tractor has a profit of <span class="code code__inline">$600</span> and each combine has a profit of <span class="code code__inline">$200</span>.</p>
+          <div class="page__example__title">
+            <h4 class="page__example__subtitle">Determine the expected daily profit.</h4>
+            <div class="page__example__button">Show Solution</div>
+          </div>
+          <div class="page__example">
+            <p>The expected value for X and Y are as follows:</p>
+            <div class="code code__block">
+              E(X) = 0(0.75) + 1(0.25) = <span class="keyword">0.25</span><br />
+              E(Y) = 0(0.60) + 1(0.30) + 2(0.10) = <span class="keyword">0.50</span>
+            </div>
+            <p>Therefore the expected daily profit would be:</p>
+            <div class="code code__block">
+              E(Profit) =<br />
+              600E(X) + 200E(Y) = 600(0.25) + 200(0.50) = <span class="keyword">$250</span>
+            </div>
+          </div>
+          <br />
+          <div class="page__example__title">
+            <h4 class="page__example__subtitle">Determine the variance of daily profit.</h4>
+            <div class="page__example__button">Show Solution</div>
+          </div>
+          <div class="page__example">
+            <p>Firstly, we need to find the probability distribution of the profit. There are <span class="code code__inline">2 x 3 = 6</span> possible combinations of X and Y and we need to account for the total profit for each combination:</p>
+            <table class="code">
+              <tr>
+                <td><strong>X</strong></td>
+                <td><strong>Y</strong></td>
+                <td><strong>Profit</strong></td>
+                <td><strong>P(Profit)</strong></td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0.40</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>200</td>
+                <td>0.25</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>2</td>
+                <td>400</td>
+                <td>0.10</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>600</td>
+                <td>0.20</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>800</td>
+                <td>0.05</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>1000</td>
+                <td>0.00</td>
+              </tr>
+            </table>
+            <p>Using this table, we can easily find the variance of X and Y. Since we know that <span class="code code__inline">E(Profit) = 250</span>, then the variance of the profit is:</p>
+            <div class="code code__block">
+              Var(Profit) = (0-250)&sup2;(0.4) + (200-250)&sup2;(0.25) + (400-250)&sup2;(0.10) + (600-250)&sup2;(0.20) + (800-250)&sup2;(0.05) + (1000-250)&sup2;(0.00) = <span class="keyword">67,500</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-------------------------------->
+
+    <div class="menu__container">
+      <div class="notes__container">
+        <div class="notes__wrapper">
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Decision Analysis
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Decision Analysis Example: Sequential Decisions
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Discrete Random Variables
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Bivariate <br />Distributions
+              </div>
+              <a href="290-bd.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container active">
+              <div class="note__title">
+                Bivariate <br />Distribution Problems
+              </div>
+              <a href="290-bd.html"><span></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

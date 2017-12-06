@@ -1,0 +1,710 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>COMM 294: Variable & Absorption Costing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../landing-page.css" type="text/css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../test.js"></script>
+</head>
+<body>
+
+  <div class="content__container">
+    <div class="class__title__container">
+      <div class="title__heading">
+        <div class="title__heading__before"></div>
+        <!-- change this to whatever the class title is -->
+        <h2 class="title__heading__text"><a href="294-main.html">COMM 294</a></h2>
+      </div>
+      <div class="navigation__item__description">
+        <!-- change this to the class description -->
+        Managerial Accounting
+      </div>
+    </div>
+
+    <!-- All page content goes here -->
+
+    <div class="page">
+      <div class="page__title__container">
+        <div class="typewriter">
+          <h1 class="page__title">Variable & Absorption Costing</h1>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Variable vs. Absorption</h2>
+        <p><strong>Variable</strong> costing, also called direct costing or marginal costing, is when product costs only refer to variable manufacturing costs.</p>
+        <p><strong>Absorption</strong> costing, also called full costing, is the financial-accounting costing system. It treats <strong>all</strong> manufacturing costs, including fixed costs, as product costs.</p>
+        <p class="page__quote">Selling & admin expenses are generally treated as a period cost under both costing systems.</p>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Comparisons</h2>
+        <p>In 2016, Harvey Co. produced 25,000 units and sold 20,000 units at $30 a unit. There are no units in the opening inventory.</p>
+        <p>Variable and fixed costs are as follows:</p>
+        <div class="income_statement income_statement__multi code">
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              # Units produced annually<br />
+              Variable costs / unit:
+              <div class="income_statement__subtext">
+                DM, DL, and variable MOH<br />
+                Selling & admin
+              </div>
+              Fixed costs / year:
+              <div class="income_statement__subtext">
+                Manufacturing overhead<br />
+                Selling & admin
+              </div>
+            </div>
+            <div class="income_statement__numbers">
+              # 25,000<br />
+              <br />
+              $ 10<br />
+              3<br />
+              <br />
+              $ 150,000<br />
+              100,000
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Unit Product Costs</h3>
+        <p>Unit product costs are calculated differently under both systems. In variable costing, fixed MOH is <strong>excluded</strong>:</p>
+        <div class="income_statement code">
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              DM, DL, and variable MOH<br />
+              Fixed MOH (150,000/25,000)<br />
+              Unit product cost
+            </div>
+            <div class="income_statement__numbers">
+              $ 10<br />
+              0
+              <div class="income_statement__total">
+                $ 10
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>Under absorption costing, fixed MOH <strong>is included</strong>:</p>
+        <div class="income_statement code">
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              DM, DL, and variable MOH<br />
+              Fixed MOH (150,000/25,000)<br />
+              Unit product cost
+            </div>
+            <div class="income_statement__numbers">
+              $ 10<br />
+              6
+              <div class="income_statement__total">
+                $ 16
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Income Statements</h3>
+        <p>Consider the following income statements prepared under absorption and variable costing respectively. Take particular notice at the resulting net operating income.</p>
+        <div class="income_statement income_statement__multi code">
+          <div class="income_statement__title">
+            Absorption Costing
+          </div>
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Sales (#20,000 x $30)<br />
+              Costs of goods sold:
+              <div class="income_statement__subtext">
+                Opening inventory<br />
+                Cost of goods manufactured<br />
+                Goods available for sale<br />
+                Ending inventory
+              </div>
+              Gross margin<br />
+              Selling & admin expenses<br />
+              <div class="income_statement__subtext">
+                Variable<br />
+                Fixed
+              </div>
+              Net Operating Income
+            </div>
+            <div class="income_statement__numbers">
+              <br />
+              <br />
+              $ 0<br />
+              400,000<br />
+              <div class="income_statement__total">
+                400,000
+              </div>
+              80,000
+              <div class="income_statement__total"></div>
+              <br />
+              <br />
+              $ 60,000<br />
+              100,000
+              <div class="income_statement__total"></div>
+            </div>
+            <div class="income_statement__numbers">
+              $ 600,000<br />
+              <br />
+              <br />
+              <br />
+              <br />
+              320,000
+              <div class="income_statement__total">
+                280,000
+              </div>
+              <br />
+              <br />
+              160,000
+              <div class="income_statement__total">
+                <strong>$ 120,000</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="income_statement income_statement__multi code">
+          <div class="income_statement__title">
+            Variable Costing
+          </div>
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Sales (#20,000 x $30)<br />
+              Variable expenses:
+              <div class="income_statement__subtext">
+                Opening inventory<br />
+                Cost of goods manufactured<br />
+                Goods available for sale<br />
+                Ending inventory<br />
+                Variable COGS<br />
+                Variable selling & admin
+              </div>
+              Contribution margin<br />
+              Fixed expenses<br />
+              <div class="income_statement__subtext">
+                Manufacturing overhead<br />
+                Selling & admin
+              </div>
+              Net Operating Income
+            </div>
+            <div class="income_statement__numbers">
+              <br />
+              <br />
+              $ 0<br />
+              250,000<br />
+              <div class="income_statement__total">
+                250,000
+              </div>
+              50,000
+              <div class="income_statement__total">
+                200,000
+              </div>
+              $ 60,000<br />
+              <div class="income_statement__total"></div>
+              <br />
+              <br />
+              $ 150,000<br />
+              100,000
+              <div class="income_statement__total"></div>
+            </div>
+            <div class="income_statement__numbers">
+              $ 600,000<br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              260,000
+              <div class="income_statement__total">
+                340,000
+              </div>
+              <br />
+              <br />
+              250,000
+              <div class="income_statement__total">
+                <strong>$ 90,000</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>Note how, under absorption costing, net operating income is <span class="code code__inline">$30,000</span> higher. The reason behind this is quite subtle.</p>
+        <p>The reason for this is that, essentially, fixed MOH is <strong>accrued in inventory</strong>. This results in the value of inventory being much higher in absorption costing than in variable.</p>
+        <p class="page__quote">Under absorption, COGM is $400,000 whereas under variable, it is $250,000.</p>
+        <p>Ending inventory is subsequently a higher value under absorption than under variable. In fact, it is exactly <span class="code code__inline">$30,000</span> higher. Effectively only <span class="code code__inline">$120,000</span> of fixed MOH was expensed in the year, instead of the full amount of <span class="code code__inline">$150,000</span>.</p>
+        <p class="page__quote">Variable costing more accurately represent the costs incurred by the company because <em>all</em> $150,000 is expensed.</p>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Extended Comparisons</h3>
+        <p>Now in the 2nd year, Harvey Co. produced 25,000 units, and sold 30,000 at $30 each. All other costs remain the same.</p>
+        <div class="income_statement income_statement__multi code">
+          <div class="income_statement__title">
+            Absorption Costing Yr. 2
+          </div>
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Sales (#20,000 x $30)<br />
+              Costs of goods sold:
+              <div class="income_statement__subtext">
+                Opening inventory<br />
+                Cost of goods manufactured<br />
+                Goods available for sale<br />
+                Ending inventory
+              </div>
+              Gross margin<br />
+              Selling & admin expenses<br />
+              <div class="income_statement__subtext">
+                Variable<br />
+                Fixed
+              </div>
+              Net Operating Income
+            </div>
+            <div class="income_statement__numbers">
+              <br />
+              <br />
+              $ 80,000<br />
+              400,000<br />
+              <div class="income_statement__total">
+                480,000
+              </div>
+              0
+              <div class="income_statement__total"></div>
+              <br />
+              <br />
+              $ 90,000<br />
+              100,000
+              <div class="income_statement__total"></div>
+            </div>
+            <div class="income_statement__numbers">
+              $ 900,000<br />
+              <br />
+              <br />
+              <br />
+              <br />
+              480,000
+              <div class="income_statement__total">
+                420,000
+              </div>
+              <br />
+              <br />
+              190,000
+              <div class="income_statement__total">
+                <strong>$ 230,000</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="income_statement income_statement__multi code">
+          <div class="income_statement__title">
+            Variable Costing Yr. 2
+          </div>
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Sales (#20,000 x $30)<br />
+              Variable expenses:
+              <div class="income_statement__subtext">
+                Opening inventory<br />
+                Cost of goods manufactured<br />
+                Goods available for sale<br />
+                Ending inventory<br />
+                Variable COGS<br />
+                Variable selling & admin
+              </div>
+              Contribution margin<br />
+              Fixed expenses<br />
+              <div class="income_statement__subtext">
+                Manufacturing overhead<br />
+                Selling & admin
+              </div>
+              Net Operating Income
+            </div>
+            <div class="income_statement__numbers">
+              <br />
+              <br />
+              $ 50,000<br />
+              250,000<br />
+              <div class="income_statement__total">
+                300,000
+              </div>
+              0
+              <div class="income_statement__total">
+                300,000
+              </div>
+              $ 90,000<br />
+              <div class="income_statement__total"></div>
+              <br />
+              <br />
+              $ 150,000<br />
+              100,000
+              <div class="income_statement__total"></div>
+            </div>
+            <div class="income_statement__numbers">
+              $ 900,000<br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              390,000
+              <div class="income_statement__total">
+                510,000
+              </div>
+              <br />
+              <br />
+              250,000
+              <div class="income_statement__total">
+                <strong>$ 260,000</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>Now absorption costing resulted in a lower net income because production is less than units sold. Under absorption, a higher fixed MOH was incurred, resulting in the lower net income.</p>
+        <p>There is a clear pattern between the relationship between product and sales and the resulting net income under the two costing systems:</p>
+        <table class="code">
+          <tr>
+            <td><strong>Production & Sales</strong></td>
+            <td><strong>Resulting Net Income</strong></td>
+          </tr>
+          <tr>
+            <td>Production > Sales</td>
+            <td>Absorption > Variable</td>
+          </tr>
+          <tr>
+            <td>Production < Sales</td>
+            <td>Absorption < Variable</td>
+          </tr>
+        </table>
+        <br />
+        <h3 class="page__subtitle">What if production varies but sales are constant?</h3>
+        <p>If sales are constant, then logicaly net income <strong>should not differ</strong>. Under absorption costing however, net income <strong>does</strong> differ.</p>
+        <p>This is because of how unit product costs are determined under absorption costing. The fixed MOH portion is calculated by:</p>
+        <div class="code code__block">
+          Total fixed MOH / # of units produced
+        </div>
+        <p>As a result, a change in number of units produced will result in a change in the per unit product cost.</p>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Problem 1</h2>
+        <p>Baxtell Company manufactures and sells a single product. The following costs were incurred during the company's first year of operations:</p>
+        <div class="income_statement code">
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Variable costs per unit:<br />
+              <div class="income_statement__total">
+                Manufacturing
+              </div>
+              <div class="income_statement__subtext">
+                Direct materials<br />
+                Direct labour<br />
+                Variable MOH
+              </div>
+              Variable selling & admin<br />
+              <br />
+              Fixed costs per year:<br />
+              <div class="income_statement__total">
+                Fixed MOH
+              </div>
+              Fixed selling & admin
+            </div>
+            <div class="income_statement__numbers">
+              <br />
+              <br />
+              $ 25<br />
+              12<br />
+              3<br />
+              5<br />
+              <br />
+              <br />
+              $ 200,000<br />
+              110,000
+            </div>
+          </div>
+        </div>
+        <p>During the year, the company produced 25,000 units and sold 21,000 units. The selling price of the company's product is $65 per unit.</p>
+        <p>Assume the company uses <strong>absorption</strong> costing.</p>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">Compute the unit product cost.</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <br />
+          <div class="income_statement code">
+            <div class="income_statement__title">
+              Unit Product Cost
+            </div>
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                DM, DL, and variable MOH<br />
+                Fixed MOH (200,000/25,000)<br />
+                Unit product cost
+              </div>
+              <div class="income_statement__numbers">
+                $ 40<br />
+                8
+                <div class="income_statement__total">
+                  <span class="keyword">$ 48</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">Prepare an income statement for the year.</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <br />
+          <div class="income_statement income_statement__multi code">
+            <div class="income_statement__content expand">
+              <div class="income_statement__text">
+                Sales (#21,000 x $65)<br />
+                Costs of goods sold:
+                <div class="income_statement__subtext">
+                  Opening inventory<br />
+                  Cost of goods manufactured<br />
+                  Goods available for sale<br />
+                  Ending inventory
+                </div>
+                Gross margin<br />
+                Selling & admin expenses<br />
+                <div class="income_statement__subtext">
+                  Variable<br />
+                  Fixed
+                </div>
+                Net Operating Income
+              </div>
+              <div class="income_statement__numbers">
+                <br />
+                <br />
+                $ 0<br />
+                1,200,000<br />
+                <div class="income_statement__total">
+                  1,200,000
+                </div>
+                192,000
+                <div class="income_statement__total"></div>
+                <br />
+                <br />
+                $ 105,000<br />
+                110,000
+                <div class="income_statement__total"></div>
+              </div>
+              <div class="income_statement__numbers">
+                $ 1,365,000<br />
+                <br />
+                <br />
+                <br />
+                <br />
+                1,008,000
+                <div class="income_statement__total">
+                  357,000
+                </div>
+                <br />
+                <br />
+                215,000
+                <div class="income_statement__total">
+                  <strong>$ 142,000</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <p>Now assume the company uses <strong>variable</strong> costing.</p>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">Compute the unit product cost.</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>Since the company uses variable costing, unit product cost is just the sum of all manufacturing costs, which is <span class="code code__inline">$40</span>.</p>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">Prepare an income statement for the year.</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <br />
+          <div class="income_statement income_statement__multi code">
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                Sales (#21,000 x $65)<br />
+                Variable expenses:
+                <div class="income_statement__subtext">
+                  Opening inventory<br />
+                  Cost of goods manufactured<br />
+                  Goods available for sale<br />
+                  Ending inventory<br />
+                  Variable COGS<br />
+                  Variable selling & admin
+                </div>
+                Contribution margin<br />
+                Fixed expenses<br />
+                <div class="income_statement__subtext">
+                  Manufacturing overhead<br />
+                  Selling & admin
+                </div>
+                Net Operating Income
+              </div>
+              <div class="income_statement__numbers">
+                <br />
+                <br />
+                $ 0<br />
+                1,000,000<br />
+                <div class="income_statement__total">
+                  1,000,000
+                </div>
+                160,000
+                <div class="income_statement__total">
+                  840,000
+                </div>
+                105,000<br />
+                <div class="income_statement__total"></div>
+                <br />
+                <br />
+                $ 200,000<br />
+                110,000
+                <div class="income_statement__total"></div>
+              </div>
+              <div class="income_statement__numbers">
+                $ 1,365,000<br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                945,000
+                <div class="income_statement__total">
+                  420,000
+                </div>
+                <br />
+                <br />
+                310,000
+                <div class="income_statement__total">
+                  <strong>$ 110,000</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-------------------------------->
+
+    <div class="menu__container">
+      <div class="notes__container">
+        <div class="notes__wrapper">
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Cost Behaviour
+              </div>
+              <a href="294-cb.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Cost Volume Profit
+              </div>
+              <a href="294-cvp.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Budgeting
+              </div>
+              <a href="294-budget.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Standard Costing
+              </div>
+              <a href="294-standard.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container active">
+              <div class="note__title">
+                Variable & Absorption Costing
+              </div>
+              <a href="294-varabs.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Reporting For Control: Segmented Reporting
+              </div>
+              <a href="294-seginc.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Reporting For Control: ROI and RI
+              </div>
+              <a href="294-roi.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Reporting For Control: Transfer Pricing
+              </div>
+              <a href="294-tpr.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Relevant Costs For Decision Making
+              </div>
+              <a href="294-cdm.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Additional Problems
+              </div>
+              <a href="294-addpob.html"><span></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

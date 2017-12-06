@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../main.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="menu">
+      <h3>COMM 294</h3>
+      <a href="#">Transfer Pricing</a>
+      <h3>COMM 290</h3>
+      <a href="../CM290/290-dca.html">Decision Analysis</a>
+      <a href="../CM290/290-dcae.html">Decision Analysis Example: Sequential Decision</a>
+      <a href="../CM290/290-drv.html">Discrete Random Variables</a>
+      <a href="../CM290/290-bid.html">Bivariate Distributions</a>
+      <h3>COMM 205</h3>
+      <a href="../CM205/index.html">Data Frames and NAs</a>
+      <a href="../CM205/r4.html" class="active">Data Wrangling</a>
+      <a href="../CM205/r5.html">Data Wrangling II</a>
+      <a href="../CM205/r6.html">Data Wrangling III</a>
+      <h3>CPSC 210</h3>
+      <a href="#">Robust Design</a>
+      <a href="#">Object Oriented Design I</a>
+      <a href="#">Iterable Abstraction</a>
+      <a href="../CS210/210-ood2.html">Object Oriented Design II</a>
+    </div>
+    <main>
+
+      <div class="section">
+        <div class="text">
+          <h1>Data Wrangling</h1>
+          <p>Data wrangling can be defined as the processing of raw data from one form to another
+            with the intent of making it more appropriate for other activities such as analytics.</p>
+          <p>A dataset would frequently be used as an example here. A dataset or rds file can be read using
+            the <span class="code inline-code">readRDS()</span> function. The output is a data frame.</p>
+          <div class="code block-code">
+            <p>companies <- <span class="keyword">readRDS</span>("data/North_American_Stock_Market_1994-2013.rds")</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>select() Function</h3>
+          <p>The select() function constructs a new data frame with only the variables that are specified.</p>
+          <div class="syntax-block block-code">
+            <p>select(data_object_name, variable_name[s])</p>
+          </div>
+          <p>For example, the following code will construct a data frame consisting of only the stock price at
+            year end of the companies:</p>
+          <div class="code block-code">
+            <p>companies <- <span class="keyword">readRDS</span>("data/North_American_Stock_Market_1994-2013.rds")</p>
+            <p>stock_price_year_end <- <span class="keyword">select</span>(companies,  conm, loc, tic, fyear, prcc_c)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>filter() Function</h3>
+          <p>The filter() function constructs a new data frame where the condition(s) that are specified are true. That is,
+            it removes all the rows that results in the condition returning false.</p>
+          <div class="syntax-block block-code">
+            <p>filter(data_object_name, condition[s])</p>
+          </div>
+          <p>The following piece of code will return the companies whose headquarters are in canada:</p>
+          <div class="code block-code">
+            <p>canadian_companies <- filter(companies, loc=="CAN")</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>Using magrittr</h3>
+          <p>With magrittr, functions pipe their outputs forward to the functions to the right of them,
+            using the %>% operator.</p>
+          <p>Say we want to make a new data frame which has the company name, its headquarters location, its ticker,
+            the fiscal year, and its stock price at the end of the year for companies within Canada.<br />
+            <br />
+          Without magrittr, this is done as follows:</p>
+          <div class="code block-code">
+            <p>canadian_stock <- select(filter(companies, loc=="CAN"), comm, loc, tic, fyear, prcc_c)</p>
+          </div>
+          <p>With magrittr, this can be rewritten to:</p>
+          <div class="code block-code">
+            <p>canadian_stock <- companies %>% filter(loc=="CAN") %>% select(comm, loc, tic, fyear, prcc_c)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>mutate() Function</h3>
+          <p>The mutate function adds a new variable(column) to the existing data frame, by manipulating one of the
+          existing variables. Its syntax is:</p>
+          <div class="syntax-block block-code">
+            <p>mutate(data_object_name, new_variable_name = function(existing_variable_names))</p>
+          </div>
+          <p>The following code will return a new data frame where cash is recorded in full amount, and not in millions:</p>
+          <div class="code block-code">
+            <p>canadian_comp_full_cash <- companies %>%<br />
+            mutate(full_ch = 1000000 * ch) %>%<br />
+            filter(loc=="CAN" & fyear==2010 & ch>10) %>%<br />
+            select(conm, tic, full_ch)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>summarise() Function</h3>
+          <p>The summarise function is used to create an aggregate statistic from a data frame.</p>
+          <div class="syntax-block block-code">
+            <p>summarise(data_object_name, new_variable_name=aggregate_function(existing_variable_names))</p>
+          </div>
+          <p>The aggregate functions can be one of:</p>
+          <ul>
+            <li>For central tendency: mean(), median()</li>
+            <li>For the spread: sd()</li>
+            <li>For the range: min(), max(), quantile()</li>
+            <li>For count: n(), n_distinct()</li>
+            <li>For aggregating: sum()</li>
+          </ul>
+          <p>An example of the use of the summarise() function would be if we want to find out the max and min
+            cash recorded for Canadian companies in 2010:</p>
+          <div class="code block-code">
+            <p>max_min_cash_Canadian_2010 <- companies %>%<br />
+              filter(loc == "CAN") %>%<br />
+              summarise(max_cash = max(ch, na.rm = TRUE), min_cash = min(ch, na.rm = TRUE))</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../main.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="menu">
+      <h3>COMM 294</h3>
+      <a href="#">Transfer Pricing</a>
+      <h3>COMM 290</h3>
+      <a href="../CM290/290-dca.html">Decision Analysis</a>
+      <a href="../CM290/290-dcae.html">Decision Analysis Example: Sequential Decision</a>
+      <a href="../CM290/290-drv.html">Discrete Random Variables</a>
+      <a href="../CM290/290-bid.html">Bivariate Distributions</a>
+      <h3>COMM 205</h3>
+      <a href="../CM205/index.html">Data Frames and NAs</a>
+      <a href="../CM205/r4.html">Data Wrangling</a>
+      <a href="../CM205/r5.html" class="active">Data Wrangling II</a>
+      <a href="../CM205/r6.html">Data Wrangling III</a>
+      <h3>CPSC 210</h3>
+      <a href="#">Robust Design</a>
+      <a href="#">Object Oriented Design I</a>
+      <a href="#">Iterable Abstraction</a>
+      <a href="../CS210/210-ood2.html">Object Oriented Design II</a>
+    </div>
+    <main>
+
+      <div class="section">
+        <div class="text">
+          <h1>Data Wrangling II</h1>
+          <h3>The group_by() Function</h3>
+          <p>The group_by function divides the data set into groups based on given variables. Subsequent operations are
+          then done based on groups instead of the entire data frame.</p>
+          <p>For example, say we want to find the average amount of cash held by <strong>each</strong> company. This could
+          be done with one firm, like so:</p>
+          <div class="code block-code">
+            <p>companies <- <span class="keyword">readRDS</span>("data/North_American_Stock_Market_1994-2013.rds")</p>
+            <p>companies %>% filter(tic == "GOOG") %>% summarise(average = mean(ch))</p>
+          </div>
+          <p>It would be tedious to do this for every single company. This is where the group_by() function comes in. group_by() is
+          often used with either mutate() or summarise().</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>group_by() with mutate()</h3>
+          <p>Using group_by() with mutate() will lead to a new variable being created, the value of which would be the same for one firm.
+           The syntax would be:</p>
+          <div class="syntax-block block-code">
+            <p>data_object %>%</p>
+            <p>&nbsp;group_by(group_variable[s]) %>%<br />
+              &nbsp;mutate(new_variable = aggregate_function(existing_variable[s]))</p>
+          </div>
+          <p>To group a firm individually, its gvkey (Global Company Key) can be used as the group_variable. Thus to get each company's
+          average cash, the following code can be used:</p>
+          <div class="code block-code">
+            <p>companies_with_cash_avg <- companies %>%<br />
+            &nbsp;&nbsp;<span class="keyword">group_by</span>(gvkey) %>%<br />
+            &nbsp;&nbsp;<span class="keyword">mutate</span>(cash_avg = <span class="keyword">mean</span>(ch, na.rm = TRUE))</p>
+          </div>
+          <p>Essentially this adds a new column at the end of the data frame called "cash_avg" that represents the mean amount of cash held
+          by each company.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>group_by() with summarise()</h3>
+          <p>If, on the other hand, you want to only display one aggregate result per group, we use summarise() isntead.</p>
+          <div class="syntax-block block-code">
+            <p>data_object %>%<br />
+            &nbsp;group_by(group_variable[s]) %>%<br />
+            &nbsp;summarise(new_variable = aggregate_function(existing_variable[s]))</p>
+          </div>
+          <p>The code to solve the same problem as above would be quite similar:</p>
+          <div class="code block-code">
+            <p>gvkey_cash_avg <- companies %>%<br />
+            &nbsp;<span class="keyword">group_by</span>(gvkey) %>%<br />
+            &nbsp;<span class="keyword">summarise</span>(cash_avg = <span class="keyword">mean</span>(ch, na.rm = TRUE))</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h2>Using Other Aggregate Functions</h2>
+          <h3 class="code">median()</h3>
+          <p>Now we want to calculate the median number of employees in each firm, and we want to retain the original
+          data frame. To do this:</p>
+          <div class="code block-code">
+            <p>companies_with_med_emp <- companies %>%<br />
+            &nbsp;&nbsp;<span class="keyword">group_by</span>(gvkey) %>%<br />
+            &nbsp;&nbsp;<span class="keyword">mutate</span>(med_emp = <span class="keyword">median</span>(emp, na.rm = TRUE))</p>
+          </div>
+          <br />
+          <h3><span class="code">max()</span> and <span class="code">min()</span></h3>
+          <p>Now we want to calculate the maximum and minimum value of cash that a company has ever held. The max() and min()
+          functions would be useful here.</p>
+          <div class="code block-code">
+            <p>companies_with_max_min <- companies %>%<br />
+            &nbsp;&nbsp;<span class="keyword">group_by</span>(gvkey) %>%<br />
+            &nbsp;&nbsp;<span class="keyword">mutate</span>(cash_max = <span class="keyword">max</span>(ch, na.rm = TRUE),<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cash_min = <span class="keyword">min</span>(ch, na.rm = TRUE))</p>
+          </div>
+          <br />
+          <h3>Counting with <span class="code">n()</span></h3>
+          <p>The n() function counts how many observations there are. For example, let's say we want to find the number of years
+          a firm exists.</p>
+          <div class="code block-code">
+            <p>companies_summarized <- companies %>%<br />
+            &nbsp;&nbsp;<span class="keyword">group_by</span>(gvkey) %>%<br />
+            &nbsp;&nbsp;<span class="keyword">summarise</span>(number_years_firm_exists = n())</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </body>
+</html>

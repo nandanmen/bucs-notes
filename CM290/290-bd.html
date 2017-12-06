@@ -1,0 +1,208 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>COMM 290: Bivariate Distributions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../landing-page.css" type="text/css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../test.js"></script>
+</head>
+<body>
+
+  <div class="content__container">
+    <div class="class__title__container">
+      <div class="title__heading">
+        <div class="title__heading__before"></div>
+        <!-- change this to whatever the class title is -->
+        <h2 class="title__heading__text"><a href="294-main.html">COMM 290</a></h2>
+      </div>
+      <div class="navigation__item__description">
+        <!-- change this to the class description -->
+        Quantitative Decision Making
+      </div>
+    </div>
+
+    <!-- All page content goes here -->
+
+    <div class="page">
+      <div class="page__title__container">
+        <div class="typewriter">
+          <h1 class="page__title">Bivariate Distributions</h1>
+        </div>
+      </div>
+      <div class="page__content__container">
+
+        <div class="page__content">
+          <h2 class="page__subtitle">Independent Variables</h2>
+          <p>Consider a scenario where may be given two bonuses, A & B. The probability of us receiving the bonuses and the amount of the bonuses are given below.</p>
+          <table class="code">
+            <tr>
+              <td></td>
+              <td><strong>A</strong></td>
+              <td><strong>B</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Amount</strong></td>
+              <td>500</td>
+              <td>400</td>
+            </tr>
+            <tr>
+              <td><strong>P</strong></td>
+              <td>0.4</td>
+              <td>0.3</td>
+            </tr>
+          </table>
+          <div class="page__example__title">
+            <p class="page__example__subtitle"><strong>What is the variance of A and B?</strong></p>
+            <div class="page__example__button">Show Solution</div>
+          </div>
+          <div class="page__example">
+            <p>The expected value and variance of A and B are as follows:</p>
+            <div class="code code__block">
+              E(A) = 0.6(0) + 0.4(500) = 200<br/>
+              E(A&sup2;) = 0.6(0) + 0.4(250,000) = 100,000<br/>
+              Var(A) = 100,000 - (200)&sup2; = <span class="keyword">60,000</span><br />
+              <br />
+              E(B) = 0.7(0) + 0.3(400) = 120<br/>
+              E(B&sup2;) = 0.7(0) + 0.3(160,000) = 48,000<br/>
+              Var(B) = 48,000 - (120)&sup2; = <span class="keyword">33,600</span>
+            </div>
+            <br />
+          </div>
+          <div class="page__example__title">
+            <p class="page__example__subtitle"><strong>What would be the variance of the <em>total</em> amount of money we might receive?</strong></p>
+            <div class="page__example__button">Show Solution</div>
+          </div>
+          <div class="page__example">
+            <p>To answer this question, we first need to find the probabilities of the different amount of money that we can receive. There are <strong>four</strong> possibilities:</p>
+            <table class="code">
+              <tr>
+                <td><strong>A + B</strong></td>
+                <td>0</td>
+                <td>400</td>
+                <td>500</td>
+                <td>900</td>
+              </tr>
+              <tr>
+                <td><strong>P(A + B)</strong></td>
+                <td>0.6x0.7 = <strong>0.42</strong></td>
+                <td>0.6x0.3 = <strong>0.18</strong></td>
+                <td>0.4x0.7 = <strong>0.28</strong></td>
+                <td>0.4x0.3 = <strong>0.12</strong></td>
+              </tr>
+            </table>
+            <p>With this information, we can then find the expected value of A + B:</p>
+            <div class="code code__block">
+              E(A + B) = 0.42(0) + 0.18(400) + 0.28(500) + 0.12(900) = 320
+            </div>
+            <p>The variance of A + B is thus:</p>
+            <div class="code code__block">
+              E((A+B)&sup2;) = 0.42(0) + 0.18(160,000) + 0.28(250,000) + 0.12(810,000) = 196,000<br/>
+              Var(A+B) = 196,000 - (320)&sup2; = <span class="keyword">93,600</span>
+            </div>
+          </div>
+          <p>Notice how the result we got, <span class="code code__inline spoiler">93,600</span>, is equal to the sum of the <strong>individual</strong> variances of A and B. Therefore we can deduce the following formula, given that A and B are independent events:</p>
+          <div class="code code__block">
+            Var(A + B) = Var(A) + Var(B)
+          </div>
+        </div>
+
+        <div class="page__content">
+          <h2 class="page__subtitle">Dependent Variables</h2>
+          <p>Say we are given the following probability distribution table:</p>
+          <table class="code">
+            <tr>
+              <td><strong>AND</strong></td>
+              <td><strong>Y = 5</strong></td>
+              <td><strong>Y = 10</strong></td>
+            </tr>
+            <tr>
+              <td><strong>X = 10</strong></td>
+              <td>0.3</td>
+              <td>0.2</td>
+            </tr>
+            <tr>
+              <td><strong>X = 30</strong></td>
+              <td>0.1</td>
+              <td>0.4</td>
+            </tr>
+          </table>
+          <p><strong>Are the variables X and Y independent? How do we know?</strong></p>
+          <p>The two variables X and Y are independent only if:</p>
+          <div class="code code__block">
+            P(X and Y) = P(X) x P(Y) holds for <em>all values</em> of X and Y.
+          </div>
+          <p>But here, <span class="code code__inline">P(X and Y)</span> when X = 30 and Y = 10 is 0.4. But:</p>
+          <div class="code code__block">
+            When X = 30 and Y = 10,<br />
+            P(X) x P(Y) = (0.1 + 0.4) x (0.2 + 0.4) = 0.5 x 0.6 = <span class="keyword">0.30</span>
+          </div>
+          <p>Therefore X and Y are <strong>dependent</strong>.</p>
+          <h3 class="page__subtitle">Variance and Expected Value of Dependent Variables</h3>
+          <p>Generally, if X and Y are <strong>dependent</strong> instead of independent, the formula for expected value <em>always</em> holds whereas the formula for variance does not.</p>
+          <p>That is, if X and Y are dependent, the following formula still holds:</p>
+          <div class="code code__block">
+            E(A + B) = E(A) + E(B)
+          </div>
+          <p>But the following <strong>would not</strong> hold:</p>
+          <div class="code code__block">
+            Var(A + B) = Var(A) + Var(B)
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-------------------------------->
+
+    <div class="menu__container">
+      <div class="notes__container">
+        <div class="notes__wrapper">
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Decision Analysis
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Decision Analysis Example: Sequential Decisions
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Discrete Random Variables
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container active">
+              <div class="note__title">
+                Bivariate <br />Distributions
+              </div>
+              <a href="290-bd.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Bivariate <br />Distribution Problems
+              </div>
+              <a href="290-bdp.html"><span></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

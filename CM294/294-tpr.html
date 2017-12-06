@@ -1,0 +1,269 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>COMM 294: Transfer Pricing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../landing-page.css" type="text/css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../test.js"></script>
+</head>
+<body>
+
+  <div class="content__container">
+    <div class="class__title__container">
+      <div class="title__heading">
+        <div class="title__heading__before"></div>
+        <!-- change this to whatever the class title is -->
+        <h2 class="title__heading__text"><a href="205-main.html">COMM 294</a></h2>
+      </div>
+      <div class="navigation__item__description">
+        <!-- change this to the class description -->
+        Managerial Accounting
+      </div>
+    </div>
+
+    <!-- All page content goes here -->
+
+    <div class="page">
+      <div class="page__title__container">
+        <h1 class="page__title">Reporting For Control</h1>
+        <p class="page__title__caption">Transfer Pricing</p>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Transfer Pricing</h2>
+        <p>A <strong>transfer price</strong> is the price charged when one segment of a company provides goods/services to another segment of the company. The "supplier" provides an intermediate product/service to the "buying" division.</p>
+        <p class="page__quote">The transfer price shifts profits in the company but does not (directly) affect the company as a whole.</p>
+        <p>There are <strong>three</strong> methods to determine the transfer price: market-based, cost-based, or negotiated.</p>
+        <h3 class="page__subtitle">Market-Based</h3>
+        <p>Uses the market price of similar goods traded on an external market to set your internal transfer price.</p>
+        <h3 class="page__subtitle">Cost-Based</h3>
+        <p>Transfer price is based on cost of producing the product. Usually the full (absorption) cost using standard costs is used, and some type of markup is added.</p>
+        <h3 class="page__subtitle">Negotiated</h3>
+        <p>The selling division and buying division negotiate on a transfer price.</p>
+        <p>The <strong>highest acceptable price</strong> would be the cost of the product on the external market. The <strong>lowest acceptable price</strong> would be the cost per unit to produce + the opportunity cost of selling the product internally.</p>
+        <p>Essentially:</p>
+        <div class="code code__block">
+          <span class="keyword">Minimum transfer price</span> = <br />
+          Variable cost + (Total CM lost / # units transferred)
+        </div>
+        <p>When negotiating, there are three different scenarios to consider:</p>
+        <ol class="page__list">
+          <li>Supplying division has <em>excess</em> capacity, i.e. transfer does not affect outside sales.</li>
+          <li>Supplying division has <em>no excess</em> capacity.</li>
+          <li>Supplying division has <em>partial excess</em> capacity.</li>
+        </ol>
+        <br />
+        <h3 class="page__subtitle">Excess Capacity</h3>
+        <p>If the supplier has excess capacity, then the transfer has no affect on outside sales. Thus, the minimum transfer price the supplier should accept would be:</p>
+        <div class="code code__block">
+          Minimum transfer price = Variable cost
+        </div>
+        <br />
+        <h3 class="page__subtitle">No Excess Capacity</h3>
+        <p>If there is no excess capacity, then internal transfers come entirely at the expense of outside sales. The price of every unit transferred <strong>must</strong> also cover the opportunity cost. Therefore:</p>
+        <div class="code code__block">
+          Minimum transfer price = <br />
+          Variable cost + <br />
+          (Lost CM from lost sales <strong>for entire # of units transferred</strong>) / # of units transferred
+        </div>
+        <br />
+        <h3 class="page__subtitle">Partial Excess Capacity</h3>
+        <p>If there is partial excess capacity, then internal transfers come <em>partially</em> at the expense of outside sales. Therefore:</p>
+        <div class="code code__block">
+          Minimum transfer price = <br />
+          Variable cost + <br />
+          (Lost CM from lost sales <strong>only for # units of lost sales</strong>) / # of units transferred
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Example 1: Box Company</h2>
+        <p>The cardboard division wants to purchase 480,000 pounds of pulp from the pulp division. The pulp division has ample capacity, and the cardboard division can buy pulp on the market for $13 per pound.</p>
+        <p>Management uses a <strong>cost-plus</strong> transfer price for the pulp division, with a markup of 10%.</p>
+        <p>Total cost per unit (variable <strong>and</strong> fixed) is $12.90. Fixed cost per unit is $1.05.</p>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Would the cardboard division accept the transfer price?</h3>
+        <p>The cardboard division would <strong>not</strong> accept the transfer price.</p>
+        <p>Using a cost-plus transfer price, the transfer price would be:</p>
+        <div class="code code__block">
+          12.90 x 1.10 = <span class="keyword">$14.19</span>
+        </div>
+        <p>However, the cardboard division is able to get the pulp in the external market for only $13. So they will not accept the transfer price.</p>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">How could an acceptable transfer price be determined?</h3>
+        <p>The cardboard and pulp divisions would have to negotiate a transfer price.</p>
+        <p>Since the pulp division has ample (excess) capacity, the <strong>lowest acceptable</strong> would just be the variable cost of producing the pulp:</p>
+        <div class="code code__block">
+          12.90 - 1.05 = <span class="keyword">$11.85</span>
+        </div>
+        <p>The <strong>highest acceptable</strong> would be the price in the external market, which is $13. Therefore the transfer price would be:</p>
+        <div class="code code__block">
+          <span class="keyword">11.85</span> < transfer price < <span class="keyword">13</span>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Example 2: Barker Company</h2>
+        <p>Barker company has two division - Batteries and Vehicles. The vehicles divison needs to purchase 50,000 units of batteries per year. It is currently buying the batteries from an external supplier for $39 per battery. More information:</p>
+        <ul class="page__list">
+          <li>The battery division has a production capacity of 300,000 units.</li>
+          <li>It can sell batteries on the market for $40 per unit.</li>
+          <li>Variable costs per battery are $18, and fixed costs per battery (based on capacity) are $7.</li>
+        </ul>
+      </div>
+
+      <div class="page__content">
+        <p>Suppose the Battery division has enough idle capacity to supply the Vehicle division without diverting batteries from the outside market.</p>
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">What is the lowest acceptable transfer price from the viewpoint of the selling division?</h3>
+          <div class="page__example__button">
+            Show Solution
+          </div>
+        </div>
+        <div class="page__example">
+          <p>Since there is enough idle capacity, i.e. the Battery Division has <em>excess</em> capacity, then the minimum transfer price is just variable cost - <span class="code code__inline">$18</span>.</p>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <p>Suppose the Battery Division is already operating <em>at capacity</em> selling to the outside market.</p>
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">What is the lowest acceptable transfer price from the viewpoint of the selling division?</h3>
+          <div class="page__example__button">
+            Show Solution
+          </div>
+        </div>
+        <div class="page__example">
+          <p>Since the Battery Division is operating at <strong>full</strong> capacity, then transfers would come completely at the cost of sales. Therefore:</p>
+          <div class="code code__block">
+            Minimum transfer price = <br />
+            VC + Lost CM = 18 + (40-18) = <span class="keyword">$40</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <p>Suppose the Battery Division is still operating at capacity, however it <em>can avoid $4 of variable costs</em> for internal sales.</p>
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">What is the lowest acceptable transfer price from the viewpoint of the selling division?</h3>
+          <div class="page__example__button">
+            Show Solution
+          </div>
+        </div>
+        <div class="page__example">
+          <p>The reduction in VC would result in a lower overall transfer price. However, since it is still operating at capacity, lost CM still needs to be considered:</p>
+          <div class="code code__block">
+            Minimum transfer price = <br />
+            VC + Lost CM = (18-4) + (40-18) = <span class="keyword">$36</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <p>Now the Vehicle Division wants the Battery Division to supply it with 20,000 special heavy-duty batteries.</p>
+        <ul class="page__list">
+          <li>The variable cost for each heavy-duty battery would be $27.</li>
+          <li>The Battery Division has no idle capacity.</li>
+          <li>Heavy-duty batteries require more processing time, and so will displace 22,000 regular batteries from production.</li>
+        </ul>
+        <br />
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">What is the minimum transfer price for the heavy-duty batteries?</h3>
+          <div class="page__example__button">
+            Show Solution
+          </div>
+        </div>
+        <div class="page__example">
+          <p>The heavy-duty batteries will display 22,000 units of regular batteries. This means that the # of units transferred is not equal to the # of units of lost sales. Therefore:</p>
+          <div class="code code__block">
+            Minimum transfer price = <br />
+            VC + (lost CM for sales lost)/(# of units transferred) = <br />
+            27 + ((40-18) x 22,000)/20,000 = 27 + 24.2 = <span class="keyword">51.2</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-------------------------------->
+
+    <div class="menu__container">
+      <div class="notes__container">
+        <div class="notes__wrapper">
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Cost Behaviour
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Cost Volume Profit
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Budgeting
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Standard Costing
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Variable & Absorption Costing
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Reporting For Control: ROI and RI
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container active">
+              <div class="note__title">
+                Reporting For Control: Transfer Pricing
+              </div>
+              <a href="294-tpr.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Relevant Costs For Decision Making
+              </div>
+              <a href="294-cdm.html"><span></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

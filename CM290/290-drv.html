@@ -1,0 +1,225 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../main.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="menu">
+      <h3>COMM 294</h3>
+      <a href="#">Transfer Pricing</a>
+      <h3>COMM 290</h3>
+      <a href="../CM290/290-dca.html">Decision Analysis</a>
+      <a href="../CM290/290-dcae.html">Decision Analysis Example: Sequential Decision</a>
+      <a href="../CM290/290-drv.html" class="active">Discrete Random Variables</a>
+      <a href="../CM290/290-bid.html">Bivariate Distributions</a>
+      <h3>COMM 205</h3>
+      <a href="../CM205/index.html">Data Frames and NAs</a>
+      <a href="../CM205/r4.html">Data Wrangling</a>
+      <a href="../CM205/r5.html">Data Wrangling II</a>
+      <a href="../CM205/r6.html">Data Wrangling III</a>
+      <h3>CPSC 210</h3>
+      <a href="#">Robust Design</a>
+      <a href="#">Object Oriented Design I</a>
+      <a href="#">Iterable Abstraction</a>
+      <a href="../CS210/210-ood2.html">Object Oriented Design II</a>
+    </div>
+    <main>
+
+      <div class="section">
+        <div class="text">
+          <h1>Discrete Random Variables</h1>
+          <h3>What is a discrete random variable?</h3>
+          <p>A random variable is a variable whose value is a numerical outcome of a random event. A <strong>discrete random variable</strong>
+          is a random variable whose possible values are <em>countable</em>.</p>
+          <p>For example, the random variable <em>X</em> that represents the outcome of a thrown fair dice is discrete because the outcome can only be one of: [1, 2, 3, 4, 5, 6].</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>Expected Value</h3>
+          <p>The expected value for a discrete random variable is given as follows:</p>
+          <div class="syntax-block block-code">
+            <p>E(X) = &#8721;xp(x)</p>
+          </div>
+          <p>Consider the following example for a random variable with the following probability distribution:</p>
+          <table>
+            <tr>
+              <td><strong>X</strong></td>
+              <td>10</td>
+              <td>11</td>
+              <td>12</td>
+              <td>13</td>
+              <td>14</td>
+            </tr>
+            <tr>
+              <td><strong>P(X)</strong></td>
+              <td>0.4</td>
+              <td>0.2</td>
+              <td>0.2</td>
+              <td>0.1</td>
+              <td>0.1</td>
+            </tr>
+          </table>
+          <p>The expected value for this random variable would thus be:</p>
+          <div class="code block-code math">
+            <p>E(X) = 10(0.4) + 11(0.2) + 12(0.2) + 13(0.1) + 14(0.1) = 11.3</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h4>Example: Money Game</h4>
+          <p>Consider a game where you pick a bill out of the box and get to keep it. The box contains 1 $20 bill, 2 $14 bills, and 3 $4 bills.
+          What would be the long run average payout?</p>
+          <p><strong>Solution</strong></p>
+          <p>This problem would have the following probability distribution:</p>
+          <table>
+            <tr>
+              <td><strong>X</strong></td>
+              <td>4</td>
+              <td>14</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td><strong>P(X)</strong></td>
+              <td>3/6</td>
+              <td>2/6</td>
+              <td>1/6</td>
+            </tr>
+          </table>
+          <p>The <em>"long run average payout"</em> is the same as asking for the expected value, therefore:</p>
+          <div class="code block-code math">
+            <p>E(X) = 4(3/6) + 14(2/6) + 20(1/6) = 10</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h4>Example II: Money Game with Replacement</h4>
+          <p>This variation of the game allows you to pick two bills - with replacement - and keep. The question still stands - what
+          would be the long-run average payout?</p>
+          <p><strong>Solution</strong></p>
+          <p>This problem would have the following probability distribution:</p>
+          <table>
+            <tr>
+              <td><strong>X</strong></td>
+              <td>8</td>
+              <td>18</td>
+              <td>24</td>
+              <td>28</td>
+              <td>34</td>
+              <td>40</td>
+            </tr>
+            <tr>
+              <td><strong>P(X)</strong></td>
+              <td>9/36</td>
+              <td>12/36</td>
+              <td>6/36</td>
+              <td>4/36</td>
+              <td>4/36</td>
+              <td>1/36</td>
+            </tr>
+          </table>
+          <p>The <em>"long run average payout"</em> is the same as asking for the expected value, therefore:</p>
+          <div class="code block-code math">
+            <p>E(X) = 8(9/36) + 18(12/36) + 24(6/36) + 28(4/36) + 34(4/36) + 40(1/36) = 20</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>Variance & Standard Deviation</h3>
+          <p><strong>Variance</strong> is the average squared deviation of values from the mean. <strong>Standard deviation</strong> is the
+          square root of the variance, or intuitively, the average deviation of values from the mean.</p>
+          <p>The variance of a random variable X can be calculated as follows:</p>
+          <div class="syntax-block block-code">
+            <p>&sigma;&sup2;(X) = &Sigma;[x-E(X)]&sup2;p(x)</p>
+          </div>
+          <p>Calculating the standard deviation is simply taking the square root of the variance.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h4>Example</h4>
+          <p>Consider a random variable X that represents the $ won in a single game. The probability distribution is as follows:</p>
+          <table>
+            <tr>
+              <td><strong>X</strong></td>
+              <td>0</td>
+              <td>1</td>
+              <td>19</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td><strong>P(X)</strong></td>
+              <td>1/4</td>
+              <td>1/4</td>
+              <td>1/4</td>
+              <td>1/4</td>
+            </tr>
+          </table>
+          <p>What is the variance and standard deviation of X?</p>
+          <h4>Solution</h4>
+          <p>To get the variance, we need the deviation from E(X) squared. Since the probability is all the same, the expected value would be:</p>
+          <div class="code block-code math">
+            <p>E(X) = 1/4(0 + 1 + 19 + 20) = 10</p>
+          </div>
+          <p>Therefore the deviation from E(X) squared would be:</p>
+          <table>
+            <tr>
+              <td><strong>X</strong></td>
+              <td>0</td>
+              <td>1</td>
+              <td>19</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td><strong>P(X)</strong></td>
+              <td>1/4</td>
+              <td>1/4</td>
+              <td>1/4</td>
+              <td>1/4</td>
+            </tr>
+            <tr>
+              <td><strong>[1-E(X)]&sup2;</strong></td>
+              <td>100</td>
+              <td>81</td>
+              <td>81</td>
+              <td>100</td>
+            </tr>
+          </table>
+          <p>Therefore the variance of X would be:</p>
+          <div class="code block-code math">
+            <p>Var(X) = 1/4(100 + 81 + 81 + 100) = 90.5</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>More Expected Value and Variance</h3>
+          <p>Below is another formula that we can use to find the variance of X:</p>
+          <div class="syntax-block block-code">
+            <p>Var(X) = E(X&sup2;) - E(X)&sup2;</p>
+          </div>
+          <p>The expected value of a multiple of X is simply the multiple of x times E(X). That is:</p>
+          <div class="syntax-block block-code">
+            <p>E(aX) = aE(X)</p>
+          </div>
+          <p>On the other hand, the variance of a multiple of X is equal to the multiple squared times the variance of X. That is:</p>
+          <div class="syntax-block block-code">
+            <p>&sigma;&sup2;(aX) = a&sup2;&sigma;&sup2;(X)</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </body>
+</html>

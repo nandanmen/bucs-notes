@@ -1,0 +1,311 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../main.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="menu">
+      <h3>COMM 294</h3>
+      <a href="#">Transfer Pricing</a>
+      <h3>COMM 290</h3>
+      <a href="../CM290/290-dca.html">Decision Analysis</a>
+      <a href="../CM290/290-dcae.html" class="active">Decision Analysis Example: Sequential Decisions</a>
+      <a href="../CM290/290-drv.html">Discrete Random Variables</a>
+      <a href="../CM290/290-bid.html">Bivariate Distributions</a>
+      <h3>COMM 205</h3>
+      <a href="../CM205/index.html">Data Frames and NAs</a>
+      <a href="../CM205/r4.html">Data Wrangling</a>
+      <a href="../CM205/r5.html">Data Wrangling II</a>
+      <a href="../CM205/r6.html">Data Wrangling III</a>
+      <h3>CPSC 210</h3>
+      <a href="#">Robust Design</a>
+      <a href="#">Object Oriented Design I</a>
+      <a href="#">Iterable Abstraction</a>
+      <a href="../CS210/210-ood2.html">Object Oriented Design II</a>
+    </div>
+    <main>
+
+      <div class="section">
+        <div class="text">
+          <h1>Decision Analysis Example</h1>
+          <h3>Sequential Decisions Problem</h3>
+          <p>An investor intends to purchase a piece of real estate. She has to choose between buying an apartment, a warehouse,
+          or a retail space. The profit made will depend on future economic decisions, which is either good or lame. The payoff
+          matrix is as follows:</p>
+          <table>
+            <tr>
+              <td><strong>Profits</strong></td>
+              <td>Good / <strong>G</strong></td>
+              <td>Lame / <strong>L</strong></td>
+            </tr>
+            <tr>
+              <td>Apartment / <strong>A</strong></td>
+              <td>55</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Warehouse / <strong>W</strong></td>
+              <td>30</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Retail / <strong>R</strong></td>
+              <td>100</td>
+              <td>-40</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h4>What is the best decision using the minimax regret criterion?</h4>
+          <p>The regret matrix would be:</p>
+          <table>
+            <tr>
+              <td><strong>Regret</strong></td>
+              <td>Good / <strong>G</strong></td>
+              <td>Lame / <strong>L</strong></td>
+            </tr>
+            <tr>
+              <td>Apartment / <strong>A</strong></td>
+              <td>45</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Warehouse / <strong>W</strong></td>
+              <td>70</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Retail / <strong>R</strong></td>
+              <td>0</td>
+              <td>60</td>
+            </tr>
+          </table>
+          <p>Therefore the best decision is <strong>A</strong> because it has the lowest maximum regret of 45, compared to the 70
+          of W and the 60 of R.</p>
+          <p>Now say we have information on the probility of the economy being either good or lame:</p>
+          <table>
+            <tr>
+              <td></td>
+              <td><strong>Good</strong></td>
+              <td><strong>Lame</strong></td>
+            </tr>
+            <tr>
+              <td><strong>P()</strong></td>
+              <td>0.6</td>
+              <td>0.4</td>
+            </tr>
+          </table>
+          <h4>What is the best decision using expected monetary value?</h4>
+          <p>The best decision is simply the one with the highest expected value. Therefore:</p>
+          <table>
+            <tr>
+              <td></td>
+              <td><strong>Expected Monetary Value</strong></td></tr>
+            <tr>
+              <td><strong>A</strong></td>
+              <td>0.6(55) + 0.4(10) = <strong>37</strong></td>
+            </tr>
+            <tr>
+              <td><strong>W</strong></td>
+              <td>0.6(30) + 0.4(20) = <strong>26</strong></td>
+            </tr>
+            <tr class="selected">
+              <td><strong>R</strong></td>
+              <td>0.6(100) + 0.4(-40) = <strong>44</strong></td>
+            </tr>
+          </table>
+          <p>Since R has the highest expected value, R would be the best decision.</p>
+          <h4>What is the expected value of perfect information on future economic conditions?</h4>
+          <p>We need to know what the expected profit with perfect information (EPPI) is. To find this, we first find the decisions
+          that would result in the highest output given the economic conditions.</p>
+          <table>
+            <tr>
+              <td><strong>Profits</strong></td>
+              <td>Good / <strong>G</strong></td>
+              <td>Lame / <strong>L</strong></td>
+            </tr>
+            <tr>
+              <td>Apartment / <strong>A</strong></td>
+              <td>55</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>Warehouse / <strong>W</strong></td>
+              <td>30</td>
+              <td class="selected">20</td>
+            </tr>
+            <tr>
+              <td>Retail / <strong>R</strong></td>
+              <td class="selected">100</td>
+              <td>-40</td>
+            </tr>
+          </table>
+          <p>If the economy is good, the best decision is retail with a profit of 100. If the economy is lame, the best decision would be
+          warehouse, with a profit of 20. These outcomes are shown highlighted above.</p>
+          <p>The EPPI would just be the expected value given these two values:</p>
+          <div class="code block-code math">
+            <p>EPPI = 0.6(100) + 0.4(20) = 68</p>
+          </div>
+          <p>The value of this information would be the difference between the EPPI and the EMV we found earlier:</p>
+          <div class="code block-code math">
+            <p>Value of information = 68 - 44 = 24</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>Sequential Decisions</h3>
+          <p>The investor may hire a professional economist who can forecast the economy to be either booming, coasting, or declining.
+          An examination of previous forecasts shows the following probabilities:</p>
+          <table>
+            <tr>
+              <td>IF</td>
+              <td><strong>Good</strong></td>
+              <td><strong>Lame</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Booming</strong></td>
+              <td>0.30</td>
+              <td class="keyword">0.05</td>
+            </tr>
+            <tr>
+              <td><strong>Coasting</strong></td>
+              <td>0.50</td>
+              <td>0.50</td>
+            </tr>
+            <tr>
+              <td><strong>Declining</strong></td>
+              <td class="keyword">0.20</td>
+              <td>0.45</td>
+            </tr>
+          </table>
+          <h4>How much would the investor pay for the economist?</h4>
+          <p>Essentially we need to find the expected value considering the information that is given by the economist.
+          To do that, we need to know:</p>
+          <ul>
+            <li>What is the probability of the economy being good given that the economist says the economy is booming?</li>
+            <li>What if the economist says the economy is coasting?</li>
+            <li>What if the economist says the economy is declining?</li>
+          </ul>
+          <p>The <strong>first point</strong> is the same as the probability <span class="code">P(G | B)</span>. This is equivalent to:</p>
+          <div class="code block-code math">
+            <p>P(G | B) = P(GB) / P(B)</p>
+          </div>
+          <p>Therefore we need to find <span class="code">P(GB)</span> and <span class="code">P(B)</span>.</p>
+          <ul>
+            <li><span class="code">P(GB)</span> is simply <span class="code">P(G)</span> multiplied by <span class="code">P(B | G)</span>.</li>
+            <li><span class="code">P(B)</span> can be found by summing <span class="code">P(GB)</span> and <span class="code">P(LB)</span>:</li>
+          </ul>
+          <div class="code block-code math">
+            <p>P(B) = P(GB) + P(LB) = 0.6(0.3) + 0.4(0.05) = 0.20</p>
+          </div>
+          <p><span class="code">P(G | B)</span> is then:</p>
+          <div class="code block-code math">
+            <p>P(G | B) = 0.18 / 0.20 = 0.90</p>
+          </div>
+          <br />
+          <p>The <strong>second point</strong> is the same as the probability <span class="code">P(G | C)</span>. Following the same process:</p>
+          <div class="code block-code math">
+            <p>P(GC) = 0.6(0.5) = 0.3</p>
+            <p>P(C) = P(GC) + P(LC) = 0.6(0.5) + 0.4(0.5) = 0.5</p>
+            <p>P(G | C) = 0.3 / 0.5 = 0.6</p>
+          </div>
+          <br />
+          <p>Subsequently, we can find that the <strong>third point</strong>, <span class="code">P(G | D)</span>, is equal to 0.4.</p>
+          <p>We then need to find the expected value of each decision considering the forecast of the economist. If the economist
+          says the economy is booming, the expected value of the decisions would be:</p>
+          <table>
+            <tr>
+              <td></td>
+              <td><strong>Booming</strong></td>
+            </tr>
+            <tr>
+              <td><strong>A</strong></td>
+              <td>0.9(55) + (1-0.9)(10) = <strong>50.5</strong></td>
+            </tr>
+            <tr>
+              <td><strong>W</strong></td>
+              <td>0.9(30) + 0.1(20) = <strong>29</strong></td>
+            </tr>
+            <tr>
+              <td><strong>R</strong></td>
+              <td>0.9(100) + 0.1(-40) = <strong>86</strong></td>
+            </tr>
+          </table>
+          <p>Doing this for coastal and declining would result in the following table:</p>
+          <table>
+            <tr>
+              <td></td>
+              <td><strong>Booming</strong></td>
+              <td><strong>Coastal</strong></td>
+              <td><strong>Declining</strong></td>
+            </tr>
+            <tr>
+              <td><strong>A</strong></td>
+              <td>0.9(55) + (1-0.9)(10) = <strong>50.5</strong></td>
+              <td>0.6(55) + (1-0.6)(10) = <strong>37</strong></td>
+              <td class="selected">0.4(55) + (1-0.4)(10) = <strong>28</strong></td>
+            </tr>
+            <tr>
+              <td><strong>W</strong></td>
+              <td>0.9(30) + 0.1(20) = <strong>29</strong></td>
+              <td><strong>26</strong></td>
+              <td><strong>24</strong></td>
+            </tr>
+            <tr>
+              <td><strong>R</strong></td>
+              <td class="selected">0.9(100) + 0.1(-40) = <strong>86</strong></td>
+              <td class="selected"><strong>44</strong></td>
+              <td><strong>16</strong></td>
+            </tr>
+          </table>
+          <p>Knowing all of these expected values, we would only choose the decisions with the highest EVs. So if the economist's report
+          says:</p>
+          <ul>
+            <li>Booming - pick R</li>
+            <li>Coastal - pick R</li>
+            <li>Declining - pick A</li>
+          </ul>
+          <p>These decisions and their EVs are reflected as the selceted boxes in the above table.</p>
+          <p>Since we calculated the probabilities of booming, coastal, and declining before (shown below), we can also find the expected profits
+          if we decide to hire the economist:</p>
+          <table>
+            <tr>
+              <td></td>
+              <td><strong>Booming</strong></td>
+              <td><strong>Coasting</strong></td>
+              <td><strong>Declining</strong></td>
+            </tr>
+            <tr>
+              <td><strong>P()</strong></td>
+              <td>0.20</td>
+              <td>0.50</td>
+              <td>0.30</td>
+            </tr>
+          </table>
+          <br />
+          <div class="code block-code math">
+            <p>E(X) = 0.2(86) + 0.5(44) + 0.3(28) = 47.6</p>
+          </div>
+          <p>Since previous analysis shows that, without the economist, the expected value is 44, the value of information given by the economist is:</p>
+          <div class="code block-code math">
+            <p>Expected Value of Sample Information (EVSI) = 47.6 - 44.0 = 3.6</p>
+          </div>
+          <p>This EVSI is the maximum amount the investor would be willing to pay the economist.</p>
+          <h4>What is the efficiency of this sample information?</h4>
+          <p>The efficiency is defined as the ratio between the EVSI and EVPI:</p>
+          <div class="code block-code math">
+            <p>Efficiency = 3.6 / 24 = 15%</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </body>
+</html>

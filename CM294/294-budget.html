@@ -1,0 +1,677 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>COMM 294: Budgeting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../landing-page.css" type="text/css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../test.js"></script>
+</head>
+<body>
+
+  <div class="content__container">
+    <div class="class__title__container">
+      <div class="title__heading">
+        <div class="title__heading__before"></div>
+        <!-- change this to whatever the class title is -->
+        <h2 class="title__heading__text"><a href="294-main.html">COMM 294</a></h2>
+      </div>
+      <div class="navigation__item__description">
+        <!-- change this to the class description -->
+        Managerial Accounting
+      </div>
+    </div>
+
+    <!-- All page content goes here -->
+
+    <div class="page">
+      <div class="page__title__container">
+        <div class="typewriter">
+          <h1 class="page__title">Budgeting</h1>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">The Sales Budget</h2>
+        <p>Total budgeted sales is simply the total amount of sales that are expected in a given fiscal period. It is therefore as simple as:</p>
+        <div class="code code__block">
+          Budgeted sales = expected # units sold x unit selling price
+        </div>
+        <br />
+        <h3 class="page__subtitle">Expected Cash Collections</h3>
+        <p>The expected cash collections may not necessarily match the budgeted sales, as some sales may be done on account.</p>
+        <p>To find the expected cash collections, we need to know the company's <strong>collection pattern</strong>. That is, how much and when a company expects to collect their sales on account.</p>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Example Problem</h3>
+        <p>The Royal Company expects the following sales for the quarter ending June 30. All sales are on account, and the March 31 accounts receivable balance of $30,000 will be collected in full.</p>
+        <table class="code">
+          <tr>
+            <td><strong>April</strong></td>
+            <td><strong>May</strong></td>
+            <td><strong>June</strong></td>
+          </tr>
+          <tr>
+            <td>$200,000</td>
+            <td>$500,000</td>
+            <td>$300,000</td>
+          </tr>
+        </table>
+        <p>Royal's collection pattern is as follows:</p>
+        <ul class="page__list">
+          <li>70% collected in the month of sale</li>
+          <li>25% collected in the month <strong>following</strong> sale</li>
+          <li>5% uncollectible</li>
+        </ul>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">What are the total cash collections for June?</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>Since we know Royal's collection pattern, this is quite simple. Since 5% is uncollectible, we disregard 5% of June's sales.</p>
+          <p>Then, we simply add up 70% of this month's sales with 25% of <strong>last month's</strong> sales:</p>
+          <div class="code code__block">
+            300,000(0.7) + 500,000(0.25) = <span class="keyword">$335,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">The Production Budget</h2>
+        <p>The production budget must account for adequate production such that it satisfies budgeted sales <strong>and</strong> sufficient ending inventory.</p>
+        <p>For example, if Royal company wishes that:</p>
+        <ul class="page__list">
+          <li>Ending inventory is equal to 20% of the following month's budgeted sales in units.</li>
+          <li>Ending inventory at <strong>end of quarter</strong> is 5,000 units.</li>
+        </ul>
+        <p>At the end of March 4,000 units were at hand, and unit selling price is equal to $10.</p>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">What is the required production for May?</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>If the unit selling price is $10 a unit, then the budgeted sales for April and May are <span class="code code__inline">20,000</span> and <span class="code code__inline">50,000</span> units respectively.</p>
+          <p>For May, the beginning inventory is the desired ending for April, which is 20% of May's sales, which is <span class="code code__inline">0.2 x 50,000 = 10,000</span> units.</p>
+          <p>The desired ending inventory is 20% of June's sales, which is <span class="code code__inline">0.2 x 30,000 = 6,000</span> units.</p>
+          <p>Therefore the required production of May is:</p>
+          <div class="income_statement code">
+            <div class="income_statement__title">
+              <strong>May Production Budget</strong>
+            </div>
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                Budgeted sales<br />
+                Desired ending inventory<br />
+                Total needs<br />
+                Beginning inventory<br />
+                <strong>Required production</strong>
+              </div>
+              <div class="income_statement__numbers">
+                #50,000<br />
+                6,000
+                <div class="income_statement__total">
+                  56,000
+                </div>
+                10,000
+                <div class="income_statement__total">
+                  #46,000
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">The Direct Materials Budget</h2>
+        <p>The direct materials budget details the raw materials that must be purchased to fulfill the production budget and to provide for adequate inventories.</p>
+        <p>For Royal company, consider the following information:</p>
+        <ul class="page__list">
+          <li>Five pounds of material are required per unit of product.</li>
+          <li>Management requires that materials on hand at the end of each month are equal to 10% of the next month's production.</li>
+          <li>On March 31st, 13,000 pounds of material are on hand.</li>
+        </ul>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">How much materials should be purchased in May?</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>The beginning inventory for May is 10% of May's material needs, which is 10% of 230,000, <span class="code code__inline">23,000</span>. The ending inventory is 10% of June's material needs, which is 10% x 29,000 x 5 = <span class="code code__inline">14,500</span></p>
+          <p>Therefore the materials to be purchased for May is:</p>
+          <div class="income_statement code">
+            <div class="income_statement__title">
+              <strong>May Direct Materials Budget</strong>
+            </div>
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                Production<br />
+                Materials per unit<br />
+                Production needs<br />
+                Ending inventory<br />
+                Total needed<br />
+                Beginning inventory<br />
+                <strong>Materials to purchase</strong>
+              </div>
+              <div class="income_statement__numbers">
+                #46,000<br />
+                5
+                <div class="income_statement__total">
+                  230,000
+                </div>
+                14,500
+                <div class="income_statement__total">
+                  244,500
+                </div>
+                23,000
+                <div class="income_statement__total">
+                  #221,500
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Expected-Cash Disembursement</h3>
+        <p>It is also important to know <strong>how much money</strong> is needed to pay for the materials that we need. This entirely depends on how the company chooses to pay for the materials.</p>
+        <p>Consider the following information for Royal company:</p>
+        <ul class="page__list">
+          <li>Royal pays $0.40 per pound for its materials.</li>
+          <li>One-half of a month's purchase is paid during the month. The other half is paid in the following month.</li>
+        </ul>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">What would the expected cash disembursement be during the month of May?</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>The cash outflow during the month of May is half for paying the materials purchased during May, and half for paying the materials purchased in April. Therefore:</p>
+          <div class="code code__block">
+            Cost materials in May = 0.4 x 221,500 = $88,600<br />
+            Cost materials in April = 0.4 x 140,000 = $56,000<br />
+            <br />
+            Total cash outflow in May = 0.5(88,600) + 0.5(56,000) = <span class="keyword">$72,300</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Problem 1 -->
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Problem 1</h3>
+        <p>TabComp Inc. is a distributor of computer hardware and software. They prepare annual sales forecasts, of which the first six months are shown below:</p>
+        <table class="code">
+          <tr>
+            <td></td>
+            <td><strong>Hardware<br />Units</strong></td>
+            <td><strong>Hardware<br />Dollars</strong></td>
+            <td><strong>Software</strong></td>
+            <td><strong>Total Sales</strong></td>
+          </tr>
+          <tr>
+            <td><strong>January</strong></td>
+            <td>130</td>
+            <td>390,000</td>
+            <td>160,000</td>
+            <td>550,000</td>
+          </tr>
+          <tr>
+            <td><strong>February</strong></td>
+            <td>120</td>
+            <td>360,000</td>
+            <td>140,000</td>
+            <td>500,000</td>
+          </tr>
+          <tr>
+            <td><strong>March</strong></td>
+            <td>110</td>
+            <td>330,000</td>
+            <td>150,000</td>
+            <td>480,000</td>
+          </tr>
+          <tr>
+            <td><strong>April</strong></td>
+            <td>90</td>
+            <td>270,000</td>
+            <td>130,000</td>
+            <td>400,000</td>
+          </tr>
+          <tr>
+            <td><strong>May</strong></td>
+            <td>100</td>
+            <td>300,000</td>
+            <td>125,000</td>
+            <td>425,000</td>
+          </tr>
+          <tr>
+            <td><strong>June</strong></td>
+            <td>125</td>
+            <td>375,000</td>
+            <td>225,000</td>
+            <td>600,000</td>
+          </tr>
+        </table>
+        <p>Out of TabComp's sales, 25% are cash, 30% are paid by credit card, and the remaining 45% are on open account.</p>
+        <ul class="page__list">
+          <li>The cash and bank credit card sale payments are received in the month of sale.</li>
+          <li>Bank credit card sales are subject to a 4% discount, which is deducted immediately.</li>
+          <li>Cash receipts for sales on open account are 70% in the month following the sale and 28% in the second month following the sale.</li>
+        </ul>
+        <p>TabComp's month end inventory requirements for computer hardware are 30% of the next month's sales. The units must be ordered <strong>two months</strong> in advance due to long lead times from the supplier.</p>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">Calculate the cash that TabComp can expect to collect in April.</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>The cash that will be collected can be split from three different sources: cash sales, credit card sales, and account sales.</p>
+          <p><strong>Cash sales</strong> are simply 25% of April's total sales:</p>
+          <div class="code code__block">
+            Cash sales = <br />
+            0.25 x $400,000 = <span class="keyword">$100,000</span>
+          </div>
+          <p><strong>Credit card sales</strong> are 30% of total sales with a 4% discount applied. Therefore:</p>
+          <div class="code code__block">
+            Credit card sales = <br />
+            0.96 x (0.30 x $400,000) = 0.96 x $120,000 = <span class="keyword">$115,200</span>
+          </div>
+          <p>For <strong>account sales</strong>, we have to consider the total sales of March and February. In April, we will collect:</p>
+          <ul class="page__list">
+            <li>70% of March's account sales.</li>
+            <li>28% of February's account sales.</li>
+          </ul>
+          <br />
+          <div class="code code__block">
+            March collection = <br />
+            0.70 x (0.45 x $480,000) = $151,200<br />
+            <br />
+            February collection = <br />
+            0.28 x (0.45 x $500,000) = $63,000<br />
+            <br />
+            Total account sales = 151,200 + 63,000 = <span class="keyword">$214,200</span>
+          </div>
+          <p>Total cash collections in April is the sum of all cash, credit, and account collections, which equals to <span class="code code__inline">$429,400</span>.</p>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">Determine the number of computer hardware units that should be ordered in January.</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>In January we have to order for the units that are <strong>required in March</strong>, because of the time restrictions mentioned in the problem.</p>
+          <p>The beginning inventory in March would be 30% of March's sales. The ending inventory in March would be 30% of April's sales.</p>
+          <div class="code code__block">
+            Beginning inventory = 0.30 x 110 = <span class="keyword">33 units</span><br />
+            Ending inventory = 0.30 x 90 = <span class="keyword">27 units</span>
+          </div>
+          <p>Compiling this into a "production" budget:</p>
+          <div class="income_statement code">
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                Budgeted sales<br />
+                Desired ending inventory<br />
+                Total needs<br />
+                Beginning inventory<br />
+                <strong>Required production</strong>
+              </div>
+              <div class="income_statement__numbers">
+                #110<br />
+                27
+                <div class="income_statement__total">
+                  137
+                </div>
+                33
+                <div class="income_statement__total">
+                  #104
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>Therefore in January TabComp Inc. must order 104 units of computer hardware.</p>
+        </div>
+      </div>
+
+      <!-- Problem 2 -->
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Problem 2</h3>
+        <p>A sales budget is given below for one of the products manufactured by Key Co.</p>
+        <div class="income_statement code">
+          <div class="income_statement__content condense">
+            <div class="income_statement__text">
+              January<br />
+              February<br />
+              March<br />
+              April<br />
+              May<br />
+              June<br />
+            </div>
+            <div class="income_statement__numbers">
+              # 21,000<br />
+              36,000<br />
+              61,000<br />
+              41,000<br />
+              31,000<br />
+              25,000<br />
+            </div>
+          </div>
+        </div>
+        <p>The inventory of finished goods at the end of each month should equal 20% of the next month's sales. On December 31, the finished goods inventory totalled only 4,000 units.</p>
+        <p>Each unit of product requires 3 electrical switches. Ending inventory of these switches should equal 30% of the next month's production needs. This requirement has been met for January 1 of the current year.</p>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">Prepare a budget showing the quantity of switches to be purchased each month for January, February, March, and in total for the quarter.</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>To solve the problem, we need to do a step-by-step process. Firstly, we need to find the required production for January, February, and March.</p>
+          <div class="code code__block">
+            <span class="comment">// For January:</span><br />
+            Beginning inventory = 4,000 units<br />
+            Ending inventory = 0.30 x (36,000) = 10,800 units<br />
+            <br />
+            Required production = <br />
+            Sales + ending - beginning = 21,000 + 10,800 - 4,000 = <span class="keyword">27,800</span><br />
+            <br />
+            <span class="comment">// February:</span><br />
+            Beginning = 10,800 units<br />
+            Ending = 0.30 x (61,000) = 18,300 units<br />
+            Rq. production = 36,000 + 18,300 - 10,800 = <span class="keyword">43,500</span><br />
+            <br />
+            <span class="comment">// March:</span><br />
+            Beginning = 18,300 units<br />
+            Ending = 0.30 x (41,000) = 12,300 units<br />
+            Rq. production = 61,000 + 12,300 - 18,300 = <span class="keyword">55,000</span><br />
+            <br />
+            <span class="comment">// April:</span><br />
+            Beginning = 12,300 units<br />
+            Ending = 0.30 x (31,000) = 9,300 units<br />
+            Rq. production = 41,000 + 9,300 - 12,300 = <span class="keyword">38,000</span><br />
+          </div>
+          <p>We can use this information to construct the final budget. Note that for January, the 30% ending inventory requirement has been met.</p>
+          <div class="income_statement code">
+            <div class="income_statement__title">
+              <strong>January DM Budget</strong>
+            </div>
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                Production<br />
+                Materials per unit<br />
+                Production needs<br />
+                Ending inventory<br />
+                Total needed<br />
+                Beginning inventory<br />
+                <strong>Materials to purchase</strong>
+              </div>
+              <div class="income_statement__numbers">
+                #27,800<br />
+                3
+                <div class="income_statement__total">
+                  83,400
+                </div>
+                39,150
+                <div class="income_statement__total">
+                  122,550
+                </div>
+                25,020
+                <div class="income_statement__total">
+                  #97,530
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="income_statement code">
+            <div class="income_statement__title">
+              <strong>February DM Budget</strong>
+            </div>
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                Production<br />
+                Materials per unit<br />
+                Production needs<br />
+                Ending inventory<br />
+                Total needed<br />
+                Beginning inventory<br />
+                <strong>Materials to purchase</strong>
+              </div>
+              <div class="income_statement__numbers">
+                #43,500<br />
+                3
+                <div class="income_statement__total">
+                  130,500
+                </div>
+                49,500
+                <div class="income_statement__total">
+                  180,000
+                </div>
+                39,150
+                <div class="income_statement__total">
+                  #140,850
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="income_statement code">
+            <div class="income_statement__title">
+              <strong>March DM Budget</strong>
+            </div>
+            <div class="income_statement__content">
+              <div class="income_statement__text">
+                Production<br />
+                Materials per unit<br />
+                Production needs<br />
+                Ending inventory<br />
+                Total needed<br />
+                Beginning inventory<br />
+                <strong>Materials to purchase</strong>
+              </div>
+              <div class="income_statement__numbers">
+                #55,000<br />
+                3
+                <div class="income_statement__total">
+                  165,000
+                </div>
+                34,200
+                <div class="income_statement__total">
+                  199,200
+                </div>
+                49,500
+                <div class="income_statement__total">
+                  #149,700
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h2 class="page__subtitle">Flexible Budgets</h2>
+        <p>The budgets that we have been working with so far are <strong>static</strong>. That is, they are prepared for a single fixed level of activity.</p>
+        <p>In reality it is very much possible for the true level of activity to differ from the budgeted level of activity. It is unreasonable to compare costs if the level of activity differs.</p>
+        <p><strong>Flexible budgets</strong> can be prepared to <strong>any</strong> level of activity. To prepare a flexible budget, we need the variable cost per unit of activity and total fixed costs.</p>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Example Problem</h3>
+        <p>Say we are asked to construct a flexible manufacturing overhead budget. We are given the following per unit variable costs:</p>
+        <table class="code">
+          <tr>
+            <td><strong>Indirect labour</strong></td>
+            <td>4.00</td>
+          </tr>
+          <tr>
+            <td><strong>Indirect material</strong></td>
+            <td>3.00</td>
+          </tr>
+          <tr>
+            <td><strong>Indirect power</strong></td>
+            <td>0.50</td>
+          </tr>
+        </table>
+        <p>And the following fixed costs:</p>
+        <table class="code">
+          <tr>
+            <td><strong>Depreciation</strong></td>
+            <td>12,000</td>
+          </tr>
+          <tr>
+            <td><strong>Insurance</strong></td>
+            <td>2,000</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Construct a budget for 8,000 machine hours.</h3>
+        <p>Making a flex budget is as simple as multiplying all of the unit costs by the machine hours we are given then adding the fixed costs:</p>
+        <div class="income_statement code">
+          <div class="income_statement__content">
+            <div class="income_statement__text">
+              Machine hours<br />
+              Variable costs
+              <div class="income_statement__subtext">
+                Indirect labor<br />
+                Indirect material<br />
+                Power
+              </div>
+              Total variable cost<br />
+              Fixed costs
+              <div class="income_statement__subtext">
+                Depreciation<br />
+                Insurance
+              </div>
+              Total fixed cost<br />
+              Total overhead costs
+            </div>
+            <div class="income_statement__numbers">
+              8,000
+              <div class="income_statement__total"></div>
+              <br />
+              $ 32,000<br />
+              24,000<br />
+              4,000
+              <div class="income_statement__total">
+                60,000
+              </div>
+              <br />
+              $ 12,000<br />
+              2,000
+              <div class="income_statement__total">
+                $ 14,000
+              </div>
+              <div class="income_statement__total">
+                $ 74,000
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle">Variances</h3>
+        <p>With a flexible budget, we can more accurately compare budgeted and actual amounts. The difference between a budgeted amount and the actual amount is called a <strong>variance</strong>.</p>
+        <p>A <strong>favorable</strong> variance is when the actual amount is less than the budgeted amount.</p>
+        <p>An <strong>unfavorable</strong> variance is when the actual amount is more than the budgeted amount.</p>
+      </div>
+
+    </div>
+
+    <!-------------------------------->
+
+    <div class="menu__container">
+      <div class="notes__container">
+        <div class="notes__wrapper">
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Cost Behaviour
+              </div>
+              <a href="294-cb.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Cost Volume Profit
+              </div>
+              <a href="294-cvp.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container active">
+              <div class="note__title">
+                Budgeting
+              </div>
+              <a href="294-budget.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Standard Costing
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Variable & Absorption Costing
+              </div>
+              <a href="#"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Reporting For Control: ROI and RI
+              </div>
+              <a href="294-roi.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Reporting For Control: Transfer Pricing
+              </div>
+              <a href="294-tpr.html"><span></span></a>
+            </div>
+          </div>
+          <div class="notes__row">
+            <div class="note__container">
+              <div class="note__title">
+                Relevant Costs For Decision Making
+              </div>
+              <a href="294-cdm.html"><span></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

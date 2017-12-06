@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../main.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="menu">
+      <h3>COMM 294</h3>
+      <a href="#">Transfer Pricing</a>
+      <h3>COMM 290</h3>
+      <a href="../CM290/290-dca.html">Decision Analysis</a>
+      <a href="../CM290/290-dcae.html">Decision Analysis Example: Sequential Decision</a>
+      <a href="../CM290/290-drv.html">Discrete Random Variables</a>
+      <a href="../CM290/290-bid.html">Bivariate Distributions</a>
+      <h3>COMM 205</h3>
+      <a href="../CM205/index.html" class="active">Data Frames and NAs</a>
+      <a href="../CM205/r4.html">Data Wrangling</a>
+      <a href="../CM205/r5.html">Data Wrangling II</a>
+      <a href="../CM205/r6.html">Data Wrangling III</a>
+      <h3>CPSC 210</h3>
+      <a href="#">Robust Design</a>
+      <a href="#">Object Oriented Design I</a>
+      <a href="#">Iterable Abstraction</a>
+      <a href="../CS210/210-ood2.html">Object Oriented Design II</a>
+    </div>
+    <main>
+      <div class="section">
+        <div class="text">
+          <h1>Data Frames and NAs</h1>
+          <p>A <span class="code inline-code">data frame</span> is a table that has columns
+            that represents <span class="code inline-code">variables</span> and rows that represent
+            <span class="code inline-code">observations</span>. To construct a data frame, the
+            library tidyverse has to be called first using the following line of code:</p>
+          <div class="code block-code">
+            <p><span class="keyword">library</span>(tidyverse)</p>
+          </div>
+          <p>Then a data frame can be constructed through the <span class="code inline-code">data_frame()</span>
+             function. The syntax for this function is:</p>
+        </div>
+
+        <div class="syntax-part">
+          <h3 class="syntax">Syntax</h3>
+          <div class="syntax-block block-code">
+            <p><em>data_frame</em>([<em>column_namei =</em>] vectori ...)</p>
+            <p><span class="comment">// column_namei is the name of the column.<br/>
+              // vectori is the data points inside the column.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section example">
+        <div class="text">
+          <h4>Example</h4>
+          <p>Say we want to construct a data frame called favorites, that contains data for
+          3 of our favorite movies and the respective years they came out. To do this:</p>
+          <div class="code block-code example-code">
+            <p><em>favorite</em> <- <span class="keyword">data_frame</span>(title = <span class="keyword">c</span>
+              ("Spider Man 2", "Titanic", "Troy"),<br />
+
+              year = <span class="keyword">c</span>(2004, 1997, 2004))
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>Manipulating Data Frames</h3>
+          <p>Any data entry can be accessed by using its row and column indexes.</p>
+          <div class="code block-code">
+            <p>favorite[2,2] <span class="comment">// year titanic was released</span><br />
+            The result is a dataframe with one value.</p>
+          </div>
+          <br />
+          <p>The <span class="code inline-code">$</span> operator can be used to access the data points within a column. That is,
+            <span class="code inline-code">favorite$title</span> will result in the following vector:</p>
+          <div class="code block-code">
+            <p>["Spider-Man 2", "Titanic", "Troy"]</p>
+          </div>
+          <p>If there is no column with the given name, a new column will be generated. In this case, a vector has to be assigned
+            to that column.</p>
+          <br />
+          <p>A data point can be updated by simply assigning it with the new value. For example, if the year the titanic was
+            released was put incorrectly, we can update it as follows:</p>
+          <div class="code block-code">
+            <p>favorite$year[<span class="keyword">which</span>((favorite$title == "Titanic")] <- 1998</p>
+          </div>
+          <p>Here, 1998 is assigned to the year that corresponds to the movie Titanic. The
+             <span class="code inline-code">which()</span> function returns the index of the movie whose title is "Titanic".</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="text">
+          <h3>Missing Values</h3>
+          <p>It is common for data sets to be missing values. R treats these values as the data type NA. Any arithmetic and/or
+          logical operations with NA will simply result in NA being returned.</p>
+          <div class="code block-code">
+            <p>age <- c(18,21,20,NA)<br />
+              ethnicity <- c("French", NA, "Malaysian", "Korean")<br />
+              canadian_nationality <- c(TRUE, TRUE, NA, FALSE)<br />
+              <br />
+              student <- data_frame(age, ethnicity, canadian_nationality)
+              <br />
+              student$age + 1<br />
+              <span class="comment">// returns 19 22 21 NA</span></p>
+          </div>
+          <p>Similarly, functions that attempt to operate on a vector that contains NA will simply result in NA:</p>
+          <div class="code block-code">
+            <p>mean(student$age) <span class="comment">// returns NA</span></p>
+          </div>
+          <p>However, this could easily be solved by adding the <span class="code inline-code">na.rm</span>
+             parameter, and setting it to true. This parameter instructs the function to ignore all NA values.</p>
+          <div class="code block-code">
+           <p>mean(student$age, na.rm = TRUE) <span class="comment">// returns 19.6667</span></p>
+         </div>
+        </div>
+      </div>
+
+    </main>
+  </body>
+</html>

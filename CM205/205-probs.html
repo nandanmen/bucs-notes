@@ -1,0 +1,196 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>COMM 205: Merging Datasets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../landing-page.css" type="text/css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../test.js"></script>
+</head>
+<body>
+
+  <div class="content__container">
+    <div class="class__title__container">
+      <div class="title__heading">
+        <div class="title__heading__before"></div>
+        <!-- change this to whatever the class title is -->
+        <h2 class="title__heading__text"><a href="205-main.html">COMM 205</a></h2>
+      </div>
+      <div class="navigation__item__description">
+        <!-- change this to the class description -->
+        Introduction to Management Information Systems
+      </div>
+    </div>
+
+    <!-- All page content goes here -->
+
+    <div class="page">
+      <div class="page__title__container">
+        <div class="typewriter">
+          <h1 class="page__title">Practice Problems</h1>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <h3 class="page__subtitle question">Question 1</h3>
+        <p>Immigration	Singalaysia	is	an	agency	responsible	for	issuing	study	or	work	permits.	The	agency keeps	track	of	all	clients, applications,	and	permits	in	four	different	data frames saved	as	RDS	files:</p>
+        <ul class="page__list">
+          <li>
+            <strong>Data A</strong> - Contains data on foreign citizens. Has the following information:
+            <ul class="page__list">
+              <li>Each client is assigned a unique <span class="code code__inline">client_id</span></li>
+              <li>A <span class="code code__inline">last_name</span></li>
+              <li>A <span class="code code__inline">first_name</span></li>
+              <li>A <span class="code code__inline">gender</span></li>
+              <li>A date of birth <span class="code code__inline">dob</span></li>
+              <li>Country of <span class="code code__inline">citizenship</span></li>
+            </ul>
+          </li>
+          <br />
+          <li>
+            <strong>Data B</strong> - Contains data on the permit type. Has the following information:
+            <ul class="page__list">
+              <li><span class="code code__inline">permit_type</span> is either 0 or 1</li>
+              <li><span class="code code__inline">permit_description</span> is "Study Permit" if <span class="code code__inline">permit_type</span> is 0; otherwise it is "Work Permit".</li>
+            </ul>
+          </li>
+          <br />
+          <li>
+            <strong>Data C</strong> - Contains records of all applications that has been submitted. Has the following information:
+            <ul class="page__list">
+              <li>Each application is assigned an <span class="code code__inline">app_id</span></li>
+              <li>Each application record has a corresponding <span class="code code__inline">client_id</span></li>
+              <li>Each application record has a corresponding <span class="code code__inline">permit_type</span></li>
+              <li>
+                Each application record has a <span class="code code__inline">status</span>:
+                <ul class="page__list">
+                  <li>1 means the application is under review</li>
+                  <li>2 means the application was withdrawn by the client</li>
+                  <li>3 means the application was <strong>rejected</strong> by the agency</li>
+                  <li>4 means the application was <strong>accepted</strong> by the agency</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <br />
+          <li>
+            <strong>Data D</strong> - Contains data on all issued permits. Has the following information:
+            <ul class="page__list">
+              <li>Each permit has a unique <span class="code code__inline">permit_id</span></li>
+              <li>Each permit record contains the corresponding <span class="code code__inline">app_id</span></li>
+              <li>The date the permit is issued, <span class="code code__inline">issued_date</span></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">Create a merged dataset with the following nine variables: <span class="code code__inline">permit_description, client_id, last_name, first_name, dob, citizenship, app_id, app_date, status</span></h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>The R code that we need to generate this data frame is as follows:</p>
+          <div class="code code__block">
+            merged <- <span class="keyword">left_join</span>(dataC, dataB, by = "permit_type")<br />
+            merged <- <span class="keyword">left_join</span>(merged, dataA, by = "client_id")<br />
+            merged <- merged %>% <span class="keyword">select</span>(permit_description, client_id, last_name, first_name, dob, citizenship, app_id, app_date, status)
+          </div>
+        </div>
+      </div>
+
+      <div class="page__content">
+        <div class="page__example__title">
+          <h3 class="page__example__subtitle">How many unique individuals have submitted only one application for a study permit?</h3>
+          <div class="page__example__button">Show Solution</div>
+        </div>
+        <div class="page__example">
+          <p>First we have to generate a data frame that returns the number of applications each unique individuals have submitted.</p>
+          <div class="code code__block">
+            dfq8 <- merged %>% <span class="keyword">group_by</span>(client_id, permit_description) %>% <br />
+            <span class="keyword">mutate</span>(count = <span class="keyword">n</span>()) %>% <span class="keyword">filter</span>(permit_description == "Study Permit")
+          </div>
+          <p>The <span class="code code__inline">count</span> column represents the number of applications a client has submitted of each type. Therefore the number of people who has submitted only <strong>one</strong> application is:</p>
+          <div class="code code__block">
+            <span class="keyword">sum</span>(dfq8$count == 1)
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-------------------------------->
+
+    <div class="menu__container">
+      <div class="notes__container">
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              Data Types
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              R Markdown
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              Data Frames & NAs
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              Data Wrangling I
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              Data Wrangling II
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              Data Wrangling III
+            </div>
+            <a href="#"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container">
+            <div class="note__title">
+              Merging Datasets
+            </div>
+            <a href="205-mds.html"><span></span></a>
+          </div>
+        </div>
+        <div class="notes__row">
+          <div class="note__container active">
+            <div class="note__title">
+              Practice Problems
+            </div>
+            <a href="205-probs.html"><span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

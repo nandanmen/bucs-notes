@@ -371,3 +371,19 @@ td, th {
   border-bottom: 3px solid #5D6063;
   width: 15%;
 }
+
+.flex-container {
+  display: flex;
+  margin: 0 auto;
+}
+
+.flex-item {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: right;
+}
+
+.flex-text {
+  text-align: left;
+}
